@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 	end 
 
 	def create
-		@event = Event.new(params[:event].permit(:name, :description, :deadline, :image))
+		@event = Event.new(params[:event].permit(:name, :description, :deadline, :image, :organizer_id))
 
 		if @event.save
 			flash.notice = "You created an event"

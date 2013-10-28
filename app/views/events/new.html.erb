@@ -11,5 +11,6 @@
 	<%= e.text_field :link %>
 	<%= e.label :image %>
 	<%= e.file_field :image %>
+	<%= e.hidden_field :organizer_id, value: current_organizer.id %>
 	<%= e.submit 'Create Event' %>
 <% end %>

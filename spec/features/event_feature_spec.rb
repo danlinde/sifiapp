@@ -6,6 +6,8 @@ describe 'event' do
 	context 'new event creation' do
 
 		it 'an organiser can create a new event' do
+			organizer = FactoryGirl.create(:organizer)
+      		login_as(organizer, :scope => :organizer)
 			visit new_event_path
 
 			fill_in 'Name', with: 'Team Lunch Wednesday'
