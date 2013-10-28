@@ -3,7 +3,10 @@ Sifiapp::Application.routes.draw do
   devise_for :organizers
   root :to => "home#index"
   
-  resources :events
+  resources :events do
+    resources :participants
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
