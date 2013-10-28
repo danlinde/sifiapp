@@ -85,7 +85,10 @@ describe 'event' do
 		end
 
 		it 'an organiser can edit an event' do
-			pending		
+			click_link "Edit event"
+			fill_in "Name", with: "Renamed event"
+			click_button "Update Event"
+			expect(page).to have_content "Renamed event"
 		end
 
 	end

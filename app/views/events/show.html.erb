@@ -16,5 +16,6 @@
 <h3><%= @event.link %></h3>
 <h3><%= image_tag @event.image.url(:thumb), class: 'event_image' %></h3>
 
+<p><%= link_to "Edit event", edit_event_path(@event) %></p>
 <p><%= button_to "Delete Event", @event, :method=>:delete, data: {confirm: 'Are you sure?'} %></p>
 
