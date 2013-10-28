@@ -1,45 +1,45 @@
 require 'spec_helper'
 
-describe 'User' do
+describe 'Organizer' do
   
   context 'registered members' do
 
     it 'should start with none' do
-      expect(User.all.count).to eq 0
+      expect(Organizer.all.count).to eq 0
     end
 
-    it 'should create a new user' do
-      visit new_user_registration_path
+    it 'should create a new Organizer' do
+      visit new_organizer_registration_path
 
-      fill_in 'Name', with: 'Ketchup'
+      # fill_in 'Name', with: 'Ketchup'
       fill_in 'Email', with: 'email@email.com'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
 
       expect(current_path).to eq root_path
-      expect(page).to have_css('.alert', text: "You're ready to spread.")
+      expect(page).to have_css('.notice', text: "Welcome! You have signed up successfully.")
     end
 
   end
 
-  context 'user links' do
+  context 'Organizer links' do
 
     context 'when signed out' do
 
       before(:each) { visit root_path }
 
       it 'should have sign in and sign up links' do
-        within '.navbar' do
+        # within '.navbar' do
           expect(page).to have_link 'Sign up'
           expect(page).to have_link 'Sign in'
-        end
+        # end
       end
 
       it 'should not have a sign out link' do
-        within '.navbar' do
+        # within '.navbar' do
           expect(page).not_to have_link 'Sign out'
-        end
+        # end
       end
 
     end
@@ -47,9 +47,9 @@ describe 'User' do
     context 'when signed in' do
 
       before(:each) do
-        visit new_user_registration_path
+        visit new_organizer_registration_path
 
-        fill_in 'Name', with: 'Ketchup'
+        # fill_in 'Name', with: 'Ketchup'
         fill_in 'Email', with: 'email@email.com'
         fill_in 'Password', with: 'password'
         fill_in 'Password confirmation', with: 'password'
@@ -59,16 +59,16 @@ describe 'User' do
       end
 
       it 'should have a sign out link' do
-        within '.navbar' do
+        # within '.navbar' do
           expect(page).to have_link 'Sign out'
-        end
+        # end
       end
 
       it 'should not have sign in and sign out links' do
-        within '.navbar' do
+        # within '.navbar' do
           expect(page).not_to have_link 'Sign up'
           expect(page).not_to have_link 'Sign in'
-        end
+        # end
       end
 
     end
