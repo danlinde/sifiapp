@@ -1,6 +1,14 @@
 require 'spec_helper'
+include Warden::Test::Helpers
+Warden.test_mode!
 
 describe 'event' do
+
+	before do
+		pwd = '12345678'
+		@organizer = Organizer.create(email: 'a@a.com', password: pwd, password_confirmation: pwd)
+		login_as @organizer
+	end
 
 
 	context 'new event creation' do
@@ -12,6 +20,8 @@ describe 'event' do
 			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
 			fill_in 'Deadline', with: '2013-11-06 11:00'
 			fill_in 'Email', with: "ting@tong.com"
+			fill_in 'Link', with: "http://google.com"
+
 
 			click_button 'Create Event'
 
