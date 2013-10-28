@@ -1,11 +1,15 @@
 <h2>Create your event</h2>
 
-<%= form_for @event do |e| %>
+<%= form_for @event, html: {multipart: true} do |e| %>
 	<%= e.label :name %>
 	<%= e.text_field :name %>
 	<%= e.label :description %>
 	<%= e.text_field :description %>
 	<%= e.label :deadline %>
 	<%= e.datetime_field :deadline %>
+	<%= e.label :link %>
+	<%= e.text_field :link %>
+	<%= e.label :image %>
+	<%= e.file_field :image %>
 	<%= e.submit 'Create Event' %>
 <% end %>

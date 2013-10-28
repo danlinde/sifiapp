@@ -11,6 +11,7 @@ describe 'event' do
 			fill_in 'Name', with: 'Team Lunch Wednesday'
 			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
 			fill_in 'Deadline', with: '2013-11-06 11:00'
+			fill_in 'Link', with: "http://google.com"
 
 			click_button 'Create Event'
 
