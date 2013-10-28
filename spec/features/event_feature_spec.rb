@@ -14,8 +14,6 @@ describe 'event' do
 	context 'new event creation' do
 
 		it 'an organiser can create a new event' do
-			organizer = FactoryGirl.create(:organizer)
-      		login_as(organizer, :scope => :organizer)
 			visit new_event_path
 
 			fill_in 'Name', with: 'Team Lunch Wednesday'
@@ -70,6 +68,24 @@ describe 'event' do
 
 			expect(page).to have_css 'h1', text: "Dinner on Friday"
 			expect(page).to have_css 'li', text: "dan@pan.com"		
+		end
+
+	end
+
+		context 'make changes to an event' do
+
+		before(:each) do
+			event = FactoryGirl.create(:event)
+			visit event_path(event)
+		end
+
+		it 'an organiser can delete an event' do
+			click_button "Delete Event"
+			current_path.should == root_path
+		end
+
+		it 'an organiser can edit an event' do
+			pending		
 		end
 
 	end
