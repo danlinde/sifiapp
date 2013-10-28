@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028113802) do
+ActiveRecord::Schema.define(version: 20131028152650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authentications", force: true do |t|
+    t.integer "organizer_id"
+    t.string  "provider"
+    t.string  "uid"
+    t.string  "token"
+    t.string  "token_secret"
+  end
+
+  add_index "authentications", ["organizer_id"], name: "index_authentications_on_organizer_id", using: :btree
 
   create_table "events", force: true do |t|
     t.string   "name"

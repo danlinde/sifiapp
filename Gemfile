@@ -40,6 +40,15 @@ gem 'aws-sdk'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'zurb-foundation', '~> 4.0.0'
 
+# Twitter and Facebook login
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'twitter'
+gem 'fb_graph'
+
+# dotenv loads environment variables from .env into ENV
+gem 'dotenv-rails', :groups => [:development, :test]
+
 group :development, :test do
 	gem 'rspec-rails', "~>2.0"
 	gem 'capybara'

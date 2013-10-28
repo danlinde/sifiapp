@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "SetForget.it" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -45,11 +45,17 @@
                 <ul class="right">
                   <li class="divider"></li>
                   <% if current_organizer %>
+                    Logged in as <strong><%= current_user.email %></strong>
+                    <%= link_to 'Authentications', authentications_path %>
                     <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
                   <% else %>
                     <li><%= link_to "Sign up", new_organizer_registration_path %></li>
                     <li class="divider"></li>
                     <li><%= link_to "Sign in", new_organizer_session_path %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to "Twitter", organizer_omniauth_authorize_path(:twitter) %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to "Facebook", organizer_omniauth_authorize_path(:facebook) %></li>
                   <% end %>
                     <li class="divider"></li>
                 </ul>
