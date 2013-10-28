@@ -7,6 +7,19 @@
 	<%= e.text_field :description %>
 	<%= e.label :deadline %>
 	<%= e.datetime_field :deadline %>
+
+
+	<%= e.fields_for :participants do |event_p| %>
+
+		<%= event_p.label :email %>
+		<%= event_p.text_field :email, placeholder: "Enter your email" %>
+
+		<%= event_p.label :first_name %>
+		<%= event_p.text_field :first_name, placeholder: " Enter your first name" %>
+		<%= event_p.label :last_name %>
+		<%= event_p.text_field :last_name, placeholder: " Enter your last name" %>
+    <% end %>
+
 	<%= e.label :link %>
 	<%= e.text_field :link %>
 	<%= e.label :image %>

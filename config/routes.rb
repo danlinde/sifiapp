@@ -3,7 +3,10 @@ Sifiapp::Application.routes.draw do
   devise_for :organizers
   root :to => "home#index"
   
-  resources :events
+  resources :events do
+    resources :participants
+  end
+
 
   get 'organizers/:id' => 'organizers#show', as: 'organizer'
 

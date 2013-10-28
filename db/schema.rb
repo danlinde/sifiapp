@@ -50,4 +50,15 @@ ActiveRecord::Schema.define(version: 20131028174615) do
   add_index "organizers", ["event_id"], name: "index_organizers_on_event_id", using: :btree
   add_index "organizers", ["reset_password_token"], name: "index_organizers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "participants", force: true do |t|
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
+  end
+
+  add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
+
 end

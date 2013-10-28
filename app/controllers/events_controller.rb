@@ -3,10 +3,11 @@ class EventsController < ApplicationController
 	
 	def new
 		@event = Event.new
+		1.times {@event.participants.build}
 	end 
 
 	def create
-		@event = Event.new(params[:event].permit(:name, :description, :deadline, :image, :organizer_id))
+		@event = Event.new(event_params)
 
 		if @event.save
 			flash.notice = "You created an event"
@@ -17,6 +18,15 @@ class EventsController < ApplicationController
 	end
 
 	def show
-		@event = Event.find(params[:id])
+		@event = Event.find params[:id]
 	end
+
+	private
+
+  	def event_params
+    params.require(:event)
+          .permit(:name, :description, :deadline, :image, :organizer_id
+          	participants_attributes: [:email, :first_name, :last_name])
+  	end
+
 end
