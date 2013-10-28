@@ -36,6 +36,10 @@ gem 'paperclip'
 # AWS SDK to store files
 gem 'aws-sdk'
 
+# Foundation front-end framework
+gem 'compass-rails'
+gem 'zurb-foundation', '~> 4.0.0'
+
 group :development, :test do
 	gem 'rspec-rails', "~>2.0"
 	gem 'capybara'
