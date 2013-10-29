@@ -14,6 +14,6 @@ class OrganizersController < Devise::RegistrationsController
 
 	def create
 		super
-		session[:omniauth] =nil unless @organizer.new_record?
+		session[:omniauth] = nil unless @organizer.new_record?
 	end
 end
