@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :organizer do
+  	email "a@a.com"
+    password "test1234"
   end
 end

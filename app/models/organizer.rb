@@ -7,6 +7,8 @@ class Organizer < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :events, dependent: :destroy
+
   def apply_omniauth(omni)
   	authentications.build(:provider => omni['provider'],
   	:uid => omni['uid'],

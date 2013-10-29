@@ -1,4 +1,9 @@
 class OrganizersController < Devise::RegistrationsController
+
+	def show
+		@organizer = Organizer.find(params[:id])
+	end
+
 	def build_resource(*args)
 		super
 		if session[:omniauth]

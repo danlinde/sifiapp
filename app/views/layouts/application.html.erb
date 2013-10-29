@@ -46,6 +46,7 @@
                   <li class="divider"></li>
                   <% if current_organizer %>
                     Logged in as <strong><%= current_organizer.email %></strong>
+                    <!-- authentications path removed. DW & Vinay -->
                     <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
                   <% else %>
                     <li><%= link_to "Sign up", new_organizer_registration_path %></li>

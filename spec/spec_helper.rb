@@ -44,4 +44,11 @@ RSpec.configure do |config|
 
   # Use shorthand for FactoryGirl
   config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers
+  Warden.test_mode!
+  config.after(:each) { Warden.test_reset! }
 end
+
+def emails
+  ActionMailer::Base.deliveries
+end 

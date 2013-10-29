@@ -1,11 +1,4 @@
-<h2>Create your event</h2>
-
-<%= form_for @event do |e| %>
-	<%= e.label :name %>
-	<%= e.text_field :name %>
-	<%= e.label :description %>
-	<%= e.text_field :description %>
-	<%= e.label :deadline %>
-	<%= e.datetime_field :deadline %>
-	<%= e.submit 'Create Event' %>
-<% end %>
+<div>
+	<h2> Create your event: </h2>
+	<%= render "shared/event_form" %>
+</div>

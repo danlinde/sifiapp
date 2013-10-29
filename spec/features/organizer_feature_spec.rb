@@ -75,4 +75,21 @@ describe 'Organizer' do
 
   end
 
+  context 'has a show page' do
+    before do
+      organizer = FactoryGirl.create(:organizer)
+      login_as(organizer, :scope => :organizer)
+      FactoryGirl.create(:event, :organizer_id => organizer.id)
+      visit organizer_path(organizer)
+    end
+    
+    it 'should show the organizer email' do
+      expect(page).to have_css('h3', text: 'Welcome, a@a.com')
+    end
+
+    it 'should show organizer events' do
+      expect(page).to have_link 'MyString'
+    end
+  end
+
 end
