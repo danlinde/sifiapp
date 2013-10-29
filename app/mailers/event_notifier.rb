@@ -3,6 +3,6 @@ class EventNotifier < ActionMailer::Base
 
   def confirmation_email(event)
   	@event = event
-  	mail(to: 'someuser@example.com', subject: 'Event Confirmation')
+  	mail(to: @event.organizer.email, subject: 'Event Confirmation')
   end
 end

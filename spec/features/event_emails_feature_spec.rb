@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 def create_dinner
-		@dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", deadline: "2013-11-08 13:00",
+	Event.any_instance.stub(:send_participants_email)
+		@dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", organizer: Organizer.new(:email=>"a@example.com"), deadline: "2013-11-08 13:00",
 			participants_attributes: [:email => "dan@pan.com", :first_name => "dan", :last_name => "pan"]})
 end
 
