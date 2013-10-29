@@ -3,19 +3,20 @@ Sifiapp::Application.routes.draw do
   root :to => "pages#index"
 
   devise_for :organizers, path_names: {sign_in: "login", sign_out: "logout"},
-  controllers: {omniauth_callbacks: "authentications"}
-  #, registrations: "registrations"}
+
+    controllers: {omniauth_callbacks: "authentications"}
+    #, registrations: "registrations"}
+    #With this line, we are telling our app to use the authentications controller instead of devise
+    #to handle our omniauth_callbacks, 
 
   devise_scope :organizer do
     get 'organizers/:id' => 'organizers#show', as: 'organizer'
   end
   
-  #With this line, we are telling our app to use the authentications controller instead of devise
-  #to handle our omniauth_callbacks, 
-  
   resources :events do
     resources :participants
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
