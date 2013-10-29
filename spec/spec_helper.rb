@@ -48,3 +48,7 @@ RSpec.configure do |config|
   Warden.test_mode!
   config.after(:each) { Warden.test_reset! }
 end
+
+def emails
+  ActionMailer::Base.deliveries
+end 
