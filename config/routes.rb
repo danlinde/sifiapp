@@ -1,6 +1,8 @@
 Sifiapp::Application.routes.draw do
 
   devise_for :organizers, path_names: {sign_in: "login", sign_out: "logout"},
+    controllers: {omniauth_callbacks: "authentications"}
+    #, registrations: "registrations"}
   #With this line, we are telling our app to use the authentications controller instead of devise
   #to handle our omniauth_callbacks, 
   
@@ -10,10 +12,6 @@ Sifiapp::Application.routes.draw do
 
   get 'organizers/:id' => 'organizers#show', as: 'organizer'
 
-  controllers: {omniauth_callbacks: "authentications"}
-    #, registrations: "registrations"}
-
-  resources :events
 
   root :to => "home#index"
 
