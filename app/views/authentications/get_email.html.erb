@@ -1,0 +1,5 @@
+<%= form_for current_organizer, url: authentications_set_email_path do |f| %>
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+	<%= f.submit "Add email" %>
+<% end %>

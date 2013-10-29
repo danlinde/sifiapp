@@ -45,8 +45,7 @@
                 <ul class="right">
                   <li class="divider"></li>
                   <% if current_organizer %>
-                    Logged in as <strong><%= current_user.email %></strong>
-                    <%= link_to 'Authentications', authentications_path %>
+                    Logged in as <strong><%= current_organizer.email %></strong>
                     <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
                   <% else %>
                     <li><%= link_to "Sign up", new_organizer_registration_path %></li>

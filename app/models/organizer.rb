@@ -26,4 +26,8 @@ class Organizer < ActiveRecord::Base
   	end
   end
 
+  def email_required?
+    super && authentications.empty?
+  end
+
 end

@@ -1,4 +1,4 @@
-class OrganizersController < ApplicationController
+class OrganizersController < Devise::RegistrationsController
 	def build_resource(*args)
 		super
 		if session[:omniauth]
@@ -9,6 +9,6 @@ class OrganizersController < ApplicationController
 
 	def create
 		super
-		session[:omniauth] =nil unless @organizer.new_record?
+		session[:omniauth] = nil unless @organizer.new_record?
 	end
 end
