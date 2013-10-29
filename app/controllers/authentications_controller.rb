@@ -1,4 +1,7 @@
 class AuthenticationsController < ApplicationController
+
+	skip_before_filter :nag_user_for_email
+
 	def twitter
 		#raise omni = request.env["omniauth.auth"].to_yaml
 
@@ -9,19 +12,19 @@ class AuthenticationsController < ApplicationController
 			flash[:notice] = "Logged in Successfully"
 			sign_in_and_redirect Organizer.find(authentication.organizer_id)
 
-		elsif current_organizer
-			token = omni['credentials'].token
-			token_secret = omni['credentials'].token_secret
+		# elsif current_organizer
+		# 	raise "Login found"
+		# 	token = omni['credentials'].token
+		# 	token_secret = omni['credentials'].token_secret
 
-			current_organizer.authentications.create!(:provider => omni['provider'], :uid => omni['uid'], 
-													:token => token, :token_secret => token_secret)
-			flash[:notice] = 'Authentication successful.'
-			sign_in_and_redirect current_organizer
+		# 	current_organizer.authentications.create!(:provider => omni['provider'], :uid => omni['uid'], 
+		# 											:token => token, :token_secret => token_secret)
+		# 	flash[:notice] = 'Authentication successful.'
+		# 	sign_in_and_redirect current_organizer
 
 		else
 			organizer = Organizer.new
 			organizer.apply_omniauth(omni)
-
 			if organizer.save
 				flash[:notice] = 'Logged in.'
 				sign_in_and_redirect Organizer.find(organizer.id)
@@ -31,4 +34,11 @@ class AuthenticationsController < ApplicationController
 			end
 		end
 	end
+
+	def set_email
+		current_organizer.email = params[:organizer][:email]
+		current_organizer.save
+		redirect_to '/'
+	end
+	
 end
