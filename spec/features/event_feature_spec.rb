@@ -49,11 +49,8 @@ describe 'event' do
 	context 'view an event' do
 
 
-		before(:all) do
-			@dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", deadline: "2013-11-08 13:00",
-				participants_attributes: [:email => "dan@pan.com", :first_name => "dan", :last_name => "pan"]})
-
-			# @dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", deadline: "2013-11-08 13:00"})
+		before(:each) do
+			create_dinner
 		end
 
 		it 'an organiser or participant can view an event' do
@@ -94,7 +91,7 @@ describe 'event' do
 		it 'an organiser can edit an event' do
 			click_link "Edit event"
 			fill_in "Name", with: "Renamed event"
-			click_button "Update Event"
+			click_button "event_form_submit"
 			expect(page).to have_content "Renamed event"
 		end
 

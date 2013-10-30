@@ -1,11 +1,5 @@
 require 'spec_helper'
 
-def create_dinner
-	Event.any_instance.stub(:send_confirmation_email)
-	@dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", organizer: Organizer.new(:email=>"a@example.com"), deadline: "2013-11-08 13:00",
-			participants_attributes: [:email => "dan@pan.com", :first_name => "dan", :last_name => "pan"]})
-end
-
 describe 'an invitation email to each participants' do
 
   it 'is send when an event is created' do
