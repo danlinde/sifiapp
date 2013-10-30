@@ -1,5 +1,5 @@
 <p>Hi <%= @participant.first_name %>,</p>
 
-<p>Your new event <%= link_to @event.name, event_participant_url(@event, @participant) %>.</p>
+<p>Your new event <%= link_to @event.name, edit_event_participant_url(@event, @participant) %>.</p>
 
 </html>
