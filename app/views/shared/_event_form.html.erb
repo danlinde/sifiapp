@@ -26,11 +26,7 @@
 		<%= e.hidden_field :organizer_id, value: current_organizer.id %>
 	</div>
 </div>
-
-		<%= event_p.label :email %>
-		<%= event_p.text_field :email, placeholder: "Enter your email", id: 'email_input' %>
 		
-
 	<%= e.fields_for :participants do |event_p| %>
 		<div class-"row">
 			<%= event_p.label :email %>
