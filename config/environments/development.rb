@@ -14,8 +14,17 @@ Sifiapp::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.delivery_method= :file
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+       :authentication => :plain,
+       :address => "smtp.mailgun.org",
+       :port => 587,
+       :domain => "sifiapplication.mailgun.org",
+       :user_name => "postmaster@sifiapplication.mailgun.org",
+       :password => "2tidda2-j314"
+    }
 
   # default URL options for devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
@@ -31,5 +40,6 @@ Sifiapp::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   config.middleware.delete Rack::Lock
+
 
 end
