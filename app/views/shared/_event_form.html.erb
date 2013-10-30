@@ -26,8 +26,7 @@
 		<%= e.hidden_field :organizer_id, value: current_organizer.id %>
 	</div>
 </div>
-
-
+		
 	<%= e.fields_for :participants do |event_p| %>
 		<div class-"row">
 			<%= event_p.label :email %>
