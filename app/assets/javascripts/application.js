@@ -11,12 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.all
+//= require inputosaurus
 //= require jquery_ujs
+//= require jquery.countdown
 //= require foundation
 //= require websocket_rails/main
 //= require turbolinks
 //= require_tree .
 //= require jquery.windowed
+
 
 $(document).foundation();
 

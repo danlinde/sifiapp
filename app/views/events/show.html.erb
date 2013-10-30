@@ -2,6 +2,7 @@
 <h3><%= @event.description %></h3>
 <h3><%= @event.deadline %></h3>
 
+<div id="timer" data-ends-at="<%= @event.deadline %>"></div>
 
 <h3>Participants</h3>
 
@@ -17,9 +18,10 @@
 <h3><%= @event.link %></h3>
 <h3><%= image_tag @event.image.url(:thumb), class: 'event_image' %></h3>
 
+
 <% if current_organizer == @event.organizer %>
-	<p><%= link_to "Edit event", edit_event_path(@event) %></p>
-	<p><%= button_to "Delete Event", @event, :method=>:delete, data: {confirm: 'Are you sure?'} %></p>
+	<p><%= link_to "Edit event", edit_event_path(@event),class: "button radius" %></p>
+	<p><%= button_to "Delete Event", @event, class: "button radius",:method=>:delete, data: {confirm: 'Are you sure?'} %></p>
 <% end %>
 
 
