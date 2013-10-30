@@ -14,7 +14,7 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   	<title><%= content_for?(:title) ? yield(:title) : "SetForget.it" %></title>
-
+    <link rel="stylesheet" href="path/to/windowed.min.css">
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
@@ -67,6 +67,8 @@
     </div>
 
     
-    <%= javascript_include_tag "application" %>
+    
+    <script src='jquery.js'></script>
+    <script src='/path/to/jquery.windowed.min.js'></script>
   </body>
 </html>

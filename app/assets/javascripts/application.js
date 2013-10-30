@@ -19,6 +19,7 @@
 //= require websocket_rails/main
 //= require turbolinks
 //= require_tree .
+//= require jquery.windowed
 
 
 $(document).foundation();
