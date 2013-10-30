@@ -1,4 +1,9 @@
 /* jQuery Countdown styles 1.6.3. */
+#timer {
+	overflow: hidden;
+	width: 260px;
+}
+
 .hasCountdown {
 	border: 1px solid #ccc;
 	background-color: #eee;
