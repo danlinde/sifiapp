@@ -11,13 +11,12 @@ describe 'Organizer' do
     it 'should create a new Organizer' do
       visit new_organizer_registration_path
 
-      # fill_in 'Name', with: 'Ketchup'
       fill_in 'Email', with: 'email@email.com'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
 
-      expect(current_path).to eq root_path
+      expect(current_path).to eq organizer_path(Organizer.last)
       expect(page).to have_css('.notice', text: "Welcome! You have signed up successfully.")
     end
 
@@ -89,6 +88,10 @@ describe 'Organizer' do
 
     it 'should show organizer events' do
       expect(page).to have_link 'MyString'
+    end
+
+    it 'should show allow organizer to create events' do
+      expect(page).to have_link 'Create event'
     end
   end
 

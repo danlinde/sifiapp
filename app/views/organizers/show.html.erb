@@ -1,7 +1,10 @@
 <h3>Welcome, <%= @organizer.email %></h3>
 
+<h5>Your events:</h5>
+<ul>
+	<% @organizer.events.each do |event| %>
+		<li><%= link_to "#{event.name}", event_path(event) %></li>
+	<% end %>
+</ul>
 
-<% @organizer.events.each do |event| %>
-	<%= link_to "#{event.name}", event_path(event) %>
-<% end %>
-
+<p><%= link_to "Create event", new_event_path %></p>

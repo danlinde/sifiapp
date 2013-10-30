@@ -23,7 +23,7 @@
 
   <body>
     <% if current_organizer %>
-        Logged in as <%= current_organizer %>
+        Logged in as <%= current_organizer.email %>
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

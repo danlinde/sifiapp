@@ -6,8 +6,8 @@ describe 'event' do
 
 	before do
 		pwd = '12345678'
-		@organizer = Organizer.create(email: 'a@a.com', password: pwd, password_confirmation: pwd)
-		login_as @organizer
+		organizer = Organizer.create(email: 'b@b.com', password: pwd, password_confirmation: pwd)
+		login_as organizer
 	end
 
 
@@ -56,26 +56,33 @@ describe 'event' do
 			# @dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", deadline: "2013-11-08 13:00"})
 		end
 
-		it 'an organiser can view an event' do
+		it 'an organiser or participant can view an event' do
 			visit event_path(@dinner)
 
 			expect(page).to have_css 'h1', text: "Dinner on Friday"
 			expect(current_url).to eq url_for(@dinner)
 		end
 
-		it 'an organiser can view an event with participants' do
+		it 'an organiser or participant can view an event with participants' do
 			visit event_path(@dinner)
 
 			expect(page).to have_css 'h1', text: "Dinner on Friday"
 			expect(page).to have_css 'li', text: "dan@pan.com"		
 		end
 
+		it 'a participant cannot see edit and delete buttons' do
+			expect(page).not_to have_link 'Edit event'
+			expect(page).not_to have_button 'Delete event'
+		end
+
 	end
 
-		context 'make changes to an event' do
+	context 'make changes to an event' do
 
 		before(:each) do
-			event = FactoryGirl.create(:event)
+			organizer = FactoryGirl.create(:organizer)
+			event = FactoryGirl.create(:event, organizer: organizer)
+			login_as(organizer, :scope => :organizer)
 			visit event_path(event)
 		end
 

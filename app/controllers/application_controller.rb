@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def after_sign_in_path_for(organizer)
+    organizer_path(organizer)
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
   end
