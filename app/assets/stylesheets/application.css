@@ -13,4 +13,6 @@
  *= require foundation_and_overrides
  */
 
-
+#twitter img {
+	vertical-align: middle;
+}

@@ -28,39 +28,44 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <p class="antialiased off-canvas hide-extras">
-      <nav class="top-bar hide-for-small" style="">
-        <ul class="title-area">
+    <p class="antialiased off-canvas hide-extras"></p>
+  <!--   <div class="contain-to-grid"> -->
+    
+    <nav class="top-bar">
+      <ul class="title-area">
           <!-- Title Area -->
-          <li class="name">
-            <h1><a href="/">SetForget.it</a></h1>
-          </li>
-          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+          <li class="name"><h1><a href="/">SetForget.it</a></h1></li>
+
           <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-        </ul>
+       </ul>
+    
+      <section class="top-bar-section">         
+         <ul class="left">
+          </ul>
 
+          <!-- Right Nav Section -->
+          <ul class="right">
+             <li class="divider"></li>
+            <% if current_organizer %>
+               <!-- authentications path removed. DW & Vinay -->
+               <li>Logged in as <strong><%= current_organizer.email %></strong></li>
+               <li class="divider"></li>
+                <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_organizer_registration_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Sign in", new_organizer_session_path %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to image_tag("twitter.png"), organizer_omniauth_authorize_path(:twitter), id: "twitter"  %>
+              </li>
+            <% end %>
+              <li class="divider"></li>
+          </ul>
+      </section>
+    </nav>
 
-        <section class="top-bar-section">
-                <!-- Right Nav Section -->
-                <ul class="right">
-                  <li class="divider"></li>
-                  <% if current_organizer %>
-                    Logged in as <strong><%= current_organizer.email %></strong>
-                    <!-- authentications path removed. DW & Vinay -->
-                    <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
-                  <% else %>
-                    <li><%= link_to "Sign up", new_organizer_registration_path %></li>
-                    <li class="divider"></li>
-                    <li><%= link_to "Sign in", new_organizer_session_path %></li>
-                    <li class="divider"></li>
-                    <li><%= link_to "Twitter", organizer_omniauth_authorize_path(:twitter) %></li>
-                    <li class="divider"></li>
-                    <li><%= link_to "Facebook", organizer_omniauth_authorize_path(:facebook) %></li>
-                  <% end %>
-                    <li class="divider"></li>
-                </ul>
-        </section>
-      </nav>
+   <!--  </div> -->
 
     <%= yield %>
 
