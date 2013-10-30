@@ -10,6 +10,7 @@ class ParticipantsController < ApplicationController
 		participant = Participant.find params[:id]
 		if participant.update(response: params[:response])
 			flash.notice = "Your response has been updated"
+			WebsocketRails[:responses].trigger 'new', participant
 			redirect_to event
 		else
 			render 'edit'

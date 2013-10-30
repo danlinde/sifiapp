@@ -47,6 +47,13 @@ gem 'omniauth-facebook'
 gem 'twitter'
 gem 'fb_graph'
 
+# Websockets for real time updates
+gem 'websocket-rails'
+gem 'thin'
+
+# Stripe for payments
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 # dotenv loads environment variables from .env into ENV
 gem 'dotenv-rails', :groups => [:development, :test]
 
