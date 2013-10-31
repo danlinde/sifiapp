@@ -29,8 +29,8 @@
 		
 	<%= e.fields_for :participants do |event_p| %>
 		<div class-"row">
-			<%= event_p.label :email %>
-			<%= event_p.text_field :email, placeholder: "Enter your email" %>
+			<%= event_p.label :email  %>
+			<%= event_p.text_field :email, id: "email_input", placeholder: "Enter your email" %>
 
 			<%= event_p.label :first_name %>
 			<%= event_p.text_field :first_name, placeholder: " Enter your first name" %>
