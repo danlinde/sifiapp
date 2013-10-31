@@ -17,6 +17,7 @@
 //= require jquery.countdown
 //= require jquery.windowed
 //= require foundation
+//= require jquery.flatshadow
 //= require websocket_rails/main
 //= require turbolinks
 //= require_tree .

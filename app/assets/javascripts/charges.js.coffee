@@ -2,6 +2,3 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$("#email_input").inputosaurus({
-    width : '350px'
-});
