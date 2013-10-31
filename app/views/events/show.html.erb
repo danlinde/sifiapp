@@ -24,17 +24,8 @@
 	<p><%= button_to "Delete Event", @event, class: "button radius",:method=>:delete, data: {confirm: 'Are you sure?'} %></p>
 <% end %>
 
-
-<div class="windowed select-one">
-	<select id="wp_3329327784013003">
-		<option>TAKE</option>
-		<option>IT</option>
-		<option>SLOW</option>
-	</select>
-	<ul>
-		<li class="" style="height: 35px; line-height: 35px;">5 HRS</li>
-		<li style="height: 35px; line-height: 35px;" class="selected">12 HRS</li>
-		<li style="height: 35px; line-height: 35px;" class="">24 HRS</li>
-	</ul>
-	<div class="slider" style="border-width: 5px; width: 80px; height: 35px; left: 72px; top: 1px;"></div>
-</div>
+<select id="time" class="time-select">
+	<option value="5 hrs">5 hrs</option>
+	<option value="25 hrs">25 hrs</option>
+	<option value="48 hrs">48 hrs</option>
+</select>

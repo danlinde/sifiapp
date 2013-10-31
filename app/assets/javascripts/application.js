@@ -15,6 +15,7 @@
 //= require inputosaurus
 //= require jquery_ujs
 //= require jquery.countdown
+//= require jquery.windowed
 //= require foundation
 //= require websocket_rails/main
 //= require turbolinks
