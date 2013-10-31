@@ -54,6 +54,9 @@ gem 'thin'
 # Stripe for payments
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+# Stripe Connect
+gem 'omniauth-stripe-connect'
+
 # dotenv loads environment variables from .env into ENV
 gem 'dotenv-rails', :groups => [:development, :test]
 

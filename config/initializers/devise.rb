@@ -234,6 +234,9 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :twitter, ENV["TWITTER_CONSUMER_KEY"], ENV["TWITTER_CONSUMER_SECRET"]
   config.omniauth :facebook, 'APP_ID', 'APP_SECRET'
+  config.omniauth :stripe_connect, ENV['STRIPE_CONNECT_CLIENT_ID'], ENV['STRIPE_SECRET'],
+    :scope => 'read_write',
+    :stripe_landing => 'login'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
