@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
     return false if deadline.nil?
 
     if deadline < Time.now
-      self.deadline_email_sent = true
+      deadline_email_sent = true
       save
       DeadlineNotifier.deadline_email(self).deliver!
       return true
@@ -25,8 +25,8 @@ class Event < ActiveRecord::Base
   end
 
   def send_all_events_past_deadline
-    self.where(deadline_email_sent: false).all.each do |event|
-      self.send_deadline_email
+    Event.where(deadline_email_sent: false).all.each do |event|
+      event.send_deadline_email
     end
   end
 end
