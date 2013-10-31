@@ -1,6 +1,33 @@
 
-	<% if current_organizer %>
-	<p class="center_button"><%= link_to "View your events page", organizer_path(current_organizer), class: "button radius" %></p>
+<div class="row panel">
+	<div class="large-12 columns center">
+		<h3>Want to organise an event? </h3>
+		<h3>Don't want to chase after all your friends?</h3>
+		<br>
+		<br>
+		<h2> Set it and Forget it! </h2>
+	</div>
+
+</div>
+
+<div class="row">
+
+
+<% if current_organizer %>
+
+	<div class="large-6 columns">
+	<p class="center_button animated slideInLeft"><%= link_to "Create an event now", new_event_path, class: "button large radius" %></p>
+</div>
+	<div class="large-6 columns">
+	<p class="center_button animated slideInRight"><%= link_to "View your events page", organizer_path(current_organizer), class: "button large radius" %></p>
+	</div>
+
+<% else %>
+
+<p class="center_button animated slideInLeft"><%= link_to "Create your event now", new_event_path, class: "button large radius" %></p>
+
 <% end %>
 
-<p class="center_button"><%= link_to "Create event", new_event_path, class: "button radius" %></p>
+</div>
+
+

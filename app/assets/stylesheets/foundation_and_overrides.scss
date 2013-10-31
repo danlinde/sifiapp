@@ -85,7 +85,7 @@ $column-gutter: 10.0em;
 //
 
 // We use these to control header font styles
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: 'Ubuntu', sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
 // $header-font-color: #222;
@@ -238,7 +238,7 @@ $column-gutter: 10.0em;
 // $button-med: emCalc(12px);
 // $button-tny: emCalc(7px);
 // $button-sml: emCalc(9px);
-// $button-lrg: emCalc(16px);
+$button-lrg: emCalc(20px);
 
 // We use this to control the display property.
 // $button-display: inline-block;
@@ -1040,7 +1040,7 @@ $topbar-input-height: 2.45em;
 // $text-direction: ltr;
 
 // We use these as default colors throughout
-// $primary-color: #2ba6cb;
+$primary-color: #FF5600;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
@@ -1980,10 +1980,10 @@ $button-disabled-opacity: 5.5;
 //
 
 // Background color for the top bar
-$topbar-bg: #111;
+$topbar-bg: #04376C;
 
 // Height and margin
-$topbar-height: 60px;
+$topbar-height: 70px;
 // $topbar-margin-bottom: emCalc(30px);
 
 // Control Input height for top bar
@@ -1991,10 +1991,10 @@ $topbar-height: 60px;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: bold;
-// $topbar-title-font-size: emCalc(17px);
+$topbar-title-font-size: emCalc(26px);
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: #fff;
+$topbar-link-color: #689CD3;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13px);
 

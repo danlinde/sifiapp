@@ -15,16 +15,49 @@
  *= require jquery.ui.all
  *= require jquery.windowed
  *= require inputosaurus
+ *= require animate-custom
  */
 
+
 #twitter img {
+	vertical-align: middle;
+}
+
+#stripe_connect img {
 	vertical-align: middle;
 }
 
 .center_button	{
 text-align: center;
 }
+
+.button a {
+background-color: #FF5600;
+
+}
+
+.center {
+	text-align: center;
+}
+
+.flash {
+  text-align: center;
+  padding: 15px;  
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+  .flash.notice {
+    background-color: #006E4A;
+  }
+
+  .flash.alert {
+   background-color: #A63800; 
+  }
+
 /*.container {
 	padding: 0px 50px;
 }																																																																																																																																																																																																																																																																																																																																																																																																				0--00--0-0=-00-0-0-089=-0--08	-0001================10==1018=1=8																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		
 causing errors*/
+
