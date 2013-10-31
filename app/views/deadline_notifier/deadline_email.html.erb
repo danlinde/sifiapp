@@ -1,0 +1,11 @@
+<p> Dear <%= @event.organizer.email %>, <p>
+
+<p>Your deadline is past. The following participants are attending your event: </p>
+
+<div>
+	<% @event.participants.each do |participant| %>
+		<%= participant.email if participant.response == "Yes" %>
+	<% end %>
+</div>
+
+<p>Go to your <%= link_to "event page", event_url(@event) %> for more details</p>
