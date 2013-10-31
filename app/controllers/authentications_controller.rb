@@ -3,6 +3,14 @@ class AuthenticationsController < ApplicationController
 	skip_before_filter :nag_user_for_email
 
 	def twitter
+		auth_login
+	end
+
+	def stripe_connect
+		auth_login
+	end
+
+	def auth_login
 		#raise omni = request.env["omniauth.auth"].to_yaml
 
 		omni = request.env['omniauth.auth']
@@ -40,5 +48,7 @@ class AuthenticationsController < ApplicationController
 		current_organizer.save
 		redirect_to '/'
 	end
+
+	
 	
 end
