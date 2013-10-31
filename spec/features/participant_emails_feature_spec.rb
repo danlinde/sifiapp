@@ -15,7 +15,7 @@ describe 'an invitation email to each participants' do
 	  end
 
 	  it 'should include the link of the event page' do
-	  	 expect(emails.last.body).to include edit_event_participant_path(@dinner, @dinner.participants.last)
+	  	 expect(emails.last.body).to include participant_token_path(@dinner, @dinner.participants.last.token)
 	  	    # has_xpath?('//table/tr')
 	  	    
 	  end  
