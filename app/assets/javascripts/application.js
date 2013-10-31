@@ -24,3 +24,16 @@
 
 $(document).foundation();
 
+function showflash() {
+  var name = $("#notice").text();
+  var flash = $("#notice");
+  if (name.length > 1) {$(flash).addClass('flash').addClass('notice').html(name).appendTo('#flash-container')};
+  setTimeout(function() {
+    $(flash).fadeOut();
+  }, 3000);
+}
+
+$(function() {
+  showflash();
+})
+

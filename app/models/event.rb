@@ -7,7 +7,8 @@ class Event < ActiveRecord::Base
  #    	num_of_participants.times { participants.build }
  #  	end
 
-	has_attached_file :image, styles: {thumb: '200x200>'}
+	has_attached_file :image, styles: {:medium => "450x450>", thumb: '250x250>'},
+  :default_url => "/images/missing.png"
 
 	belongs_to :organizer
 
