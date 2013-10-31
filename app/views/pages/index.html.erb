@@ -1,6 +1,6 @@
 
-<% if current_organizer %>
+	<% if current_organizer %>
 	<p><%= link_to "View your events page", organizer_path(current_organizer) %></p>
 <% end %>
 
-<p><%= link_to "Create event", new_event_path, class: "button radius" %></p>
+<p class="create_button"><%= link_to "Create event", new_event_path, class: "button radius" %></p>
