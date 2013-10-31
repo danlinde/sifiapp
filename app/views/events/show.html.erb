@@ -1,50 +1,53 @@
-<div class="row">
-<h1><%= @event.name %></h1>
-</div>
-
-<div class="row">
-<%= image_tag @event.image.url(:thumb), class: 'event_image' %>
-</div>
-
-<div class="row">
-  <div class="large-8 columns">
-		<p><%= @event.description %></p>
+<div class="panel">
+	<div class="row">
+	<h1><%= @event.name %></h1>
 	</div>
 
-	<div class="large-4 columns">
-	<h6><%= @event.deadline %></h6>
+	<div class="row">
+	<%= image_tag @event.image.url(:thumb), class: 'event_image' %>
+	</div>
 
-	<div id="timer" data-ends-at="<%= @event.deadline %>"></div>
-  </div>
-</div>
+	<div class="row">
+	  <div class="large-8 columns">
+			<p><%= @event.description %></p>
+		</div>
 
-<div>
-	<%if @token %>
-		<%= render "shared/edit_participant_response" %>
+		<div class="large-4 columns">
+		<h6><%= @event.deadline %></h6>
+
+		<div id="timer" data-ends-at="<%= @event.deadline %>"></div>
+	  </div>
+	</div>
+
+	<div>
+		<%if @token %>
+			<%= render "shared/edit_participant_response" %>
+		<% end %>
+	</div>
+
+	<h3>Participants</h3>
+
+	<ul><% @event.participants.each do |f| %>
+		
+		<%= content_tag :li, f.email %>
+		<%= content_tag :li, f.first_name + " " + f.last_name %>
+		<%= content_tag :li, f.response, :"data-id" => f.id %>
+
+		<% end %>
+	</ul>
+
+	<h3><%= @event.link %></h3>
+
+
+	<% if current_organizer == @event.organizer %>
+		<p><%= link_to "Edit event", edit_event_path(@event),class: "button radius" %></p>
+		<p><%= button_to "Delete Event", @event, class: "button radius",:method=>:delete, data: {confirm: 'Are you sure?'} %></p>
 	<% end %>
+
+	<select id="time" class="time-select">
+		<option value="5 hrs">5 hrs</option>
+		<option value="25 hrs">25 hrs</option>
+		<option value="48 hrs">48 hrs</option>
+	</select>
+
 </div>
-
-<h3>Participants</h3>
-
-<ul><% @event.participants.each do |f| %>
-	
-	<%= content_tag :li, f.email %>
-	<%= content_tag :li, f.first_name + " " + f.last_name %>
-	<%= content_tag :li, f.response, :"data-id" => f.id %>
-
-	<% end %>
-</ul>
-
-<h3><%= @event.link %></h3>
-
-
-<% if current_organizer == @event.organizer %>
-	<p><%= link_to "Edit event", edit_event_path(@event),class: "button radius" %></p>
-	<p><%= button_to "Delete Event", @event, class: "button radius",:method=>:delete, data: {confirm: 'Are you sure?'} %></p>
-<% end %>
-
-<select id="time" class="time-select">
-	<option value="5 hrs">5 hrs</option>
-	<option value="25 hrs">25 hrs</option>
-	<option value="48 hrs">48 hrs</option>
-</select>

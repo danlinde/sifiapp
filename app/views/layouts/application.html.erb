@@ -12,7 +12,7 @@
 
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
   	<title><%= content_for?(:title) ? yield(:title) : "SetForget.it" %></title>
   	<%= stylesheet_link_tag    "application" %>
     <%= csrf_meta_tags %>
@@ -20,13 +20,7 @@
 
 
   <body>
-    <% if current_organizer %>
-        Logged in as <%= current_organizer.email %>
-    <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <p class="antialiased off-canvas hide-extras"></p>
+    
   <!--   <div class="contain-to-grid"> -->
     
     <nav class="top-bar">
@@ -40,15 +34,16 @@
       <section class="top-bar-section">         
          <ul class="left">
           </ul>
-
           <!-- Right Nav Section -->
           <ul class="right">
              <li class="divider"></li>
             <% if current_organizer %>
                <!-- authentications path removed. DW & Vinay -->
-               <li>Logged in as <strong><%= current_organizer.email %></strong></li>
+                
+               <li><a href="/" >Logged in as: <%= current_organizer.email %></a></li>
                <li class="divider"></li>
                 <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
+
             <% else %>
               <li><%= link_to "Sign up", new_organizer_registration_path %></li>
               <li class="divider"></li>
@@ -63,11 +58,20 @@
       </section>
     </nav>
 
+    <div class="row">
+      <div id="flash-container">     
+        <div id="notice"><%= notice %></div>
+        
+        <div id="alert"><%= alert %></div>
+      </div>    
+     </div>
+
    <!--  </div> -->
 
     <div class='container'>
       <%= yield %>
     </div>
+
     <%= javascript_include_tag "application" %>
     
   </body>
