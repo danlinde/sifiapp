@@ -9,6 +9,8 @@ class Event < ActiveRecord::Base
 
 	after_create :send_confirmation_email
 
+  validates :organizer, presence: true
+
   def send_confirmation_email
     EventNotifier.confirmation_email(self).deliver!
   end
@@ -24,7 +26,7 @@ class Event < ActiveRecord::Base
     end
   end
 
-  def send_all_events_past_deadline
+  def self.send_all_events_past_deadline
     Event.where(deadline_email_sent: false).all.each do |event|
       event.send_deadline_email
     end
