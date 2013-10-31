@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131029123351) do
+ActiveRecord::Schema.define(version: 20131031112718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20131029123351) do
     t.datetime "updated_at"
     t.integer  "event_id"
     t.string   "response"
+    t.text     "token"
   end
 
   add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree

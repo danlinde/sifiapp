@@ -4,6 +4,12 @@
 
 <div id="timer" data-ends-at="<%= @event.deadline %>"></div>
 
+<div>
+	<%if @token %>
+		<%= render "shared/edit_participant_response" %>
+	<% end %>
+</div>
+
 <h3>Participants</h3>
 
 <ul><% @event.participants.each do |f| %>

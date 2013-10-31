@@ -17,6 +17,8 @@ Sifiapp::Application.routes.draw do
     resources :participants
   end
 
+  get '/events/:id/:token' => "events#show", as: "participant_token"
+
   get '/authentications/get_email' => 'authentications#get_email'
   patch '/authentications/set_email' => 'authentications#set_email'
 
