@@ -12,8 +12,7 @@ describe 'when I create an event' do
 	fill_in 'Name', with: 'Party'
 	fill_in 'Description', with: "big party"
 	fill_in 'event[participant_emails]', with: 'd@d.com, a@a.com'
-	select '2014', from: 'event[deadline(1i)]'
-
+	fill_in 'Deadline', with: "2013-12-05 00:00:00"
 	attach_file "Image", example_image_path
 	click_button "Create Event"
 

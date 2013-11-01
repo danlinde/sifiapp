@@ -20,8 +20,12 @@
 		</div>
 
 		<div class="large-4 columns">
-	  	
-	  	</div>
+
+		<h6><%= @event.deadline.try(:to_s, :long) || "" %></h6>
+		<h6><%= @event.event_date.try(:to_s, :long) || "" %></h6>
+
+		<div id="timer" data-ends-at="<%= @event.deadline %>"></div>
+	  </div>
 
 
 		<%if @token %>
@@ -43,6 +47,7 @@
 				<% end %>
 			<% end %>
 		</ul>
+
 
 		<ul class="no-bullet">
 			<span class="Invite_Status">Not Going</span>
@@ -81,7 +86,6 @@
 		</ul>
 
 	</div>
-		
 
 
 		<% if current_organizer == @event.organizer %>
