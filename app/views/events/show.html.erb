@@ -11,8 +11,8 @@
 		</div>
 
 		<div class="large-4 columns">
-		<h6><%= @event.deadline.strftime("%Y-%m-%d %H:%M") %></h6>
-		<h6><%= @event.event_date.strftime("%Y-%m-%d %H:%M") %></h6>
+		<h6><%= @event.deadline.try(:to_s, :long) || "" %></h6>
+		<h6><%= @event.event_date.try(:to_s, :long) || "" %></h6>
 
 		<div id="timer" data-ends-at="<%= @event.deadline %>"></div>
 	  </div>

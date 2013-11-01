@@ -13,14 +13,11 @@ describe 'an event confirmation email' do
   	}
 
 	  it 'should have subject "Event Confirmation"'  do
-
-	  	expect(emails.last.subject).to eq "Event Confirmation"
+	  	expect(emails.first.subject).to eq "Event Confirmation"
 	  end
 
 	  it 'should include the link of the event page' do
-	  	 expect(emails.last.body).to include event_path(@dinner)
-	  	    # has_xpath?('//table/tr')
-	  	    
+	  	 expect(emails.last.body).to include event_path(@dinner)	  	    
 	  end  
 
   end

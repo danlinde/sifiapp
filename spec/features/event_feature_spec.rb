@@ -18,7 +18,7 @@ describe 'event' do
 
 			fill_in 'Name', with: 'Team Lunch Wednesday'
 			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
-			select '2014', from: 'event[deadline(1i)]'
+			fill_in 'Deadline', with: "2013-12-05 00:00:00"
 			fill_in 'event[participant_emails]', with: "ting@tong.com"
 			fill_in 'Link', with: "http://google.com"
 
@@ -33,7 +33,7 @@ describe 'event' do
 
 			fill_in 'Name', with: 'Team Lunch Wednesday'
 			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
-			select '2014', from: 'event[deadline(1i)]'
+			fill_in 'Deadline', with: "2013-12-05 00:00:00"
 			fill_in 'event[participant_emails]', with: 'ting@gmail.com, dave@dave.com,'
 
 			click_button 'Create Event'
@@ -62,7 +62,7 @@ describe 'event' do
 			visit event_path(@dinner)
 
 			expect(page).to have_css 'h1', text: "Dinner on Friday"
-			expect(page).to have_css 'li', text: "dan@pan.com"		
+			expect(page).to have_css 'li', text: "ting@ting.com"		
 		end
 
 		it 'a participant cannot see edit and delete buttons' do
