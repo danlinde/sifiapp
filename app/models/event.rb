@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
 
 	belongs_to :organizer
 
-	after_create :send_confirmation_email, :send_participants_email
+	after_create :send_confirmation_email, :populate_and_email_participants
 
   validates :organizer, presence: true
 
@@ -26,17 +26,12 @@ class Event < ActiveRecord::Base
 
   def participant_emails=(comma_seperated_emails)
     emails = comma_seperated_emails.split(',')
-    emails.map!(&:squish)
-
-    emails.each do |email|
-      participant = Participant.create(email: email, event: self)
-      # participant.event = self
-      # participant.save
-    end
+    @participant_emails = emails.map!(&:squish)
   end
 
-  def send_participants_email
-    participants.each do |participant|
+  def populate_and_email_participants
+    @participant_emails.each do |email|
+      participant = Participant.create(email: email, event: self)
       participant.send_invite_email
     end
   end
