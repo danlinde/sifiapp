@@ -20,15 +20,14 @@ class AuthenticationsController < ApplicationController
 			flash[:notice] = "Logged in Successfully"
 			sign_in_and_redirect Organizer.find(authentication.organizer_id)
 
-		# elsif current_organizer
-		# 	raise "Login found"
-		# 	token = omni['credentials'].token
-		# 	token_secret = omni['credentials'].token_secret
+		elsif current_organizer
+			token = omni['credentials'].token
+			token_secret = omni['credentials'].token_secret
 
-		# 	current_organizer.authentications.create!(:provider => omni['provider'], :uid => omni['uid'], 
-		# 											:token => token, :token_secret => token_secret)
-		# 	flash[:notice] = 'Authentication successful.'
-		# 	sign_in_and_redirect current_organizer
+			current_organizer.authentications.create!(:provider => omni['provider'], :uid => omni['uid'], 
+													:token => token, :token_secret => token_secret)
+			flash[:notice] = 'Authentication successful.'
+			sign_in_and_redirect current_organizer
 
 		else
 			organizer = Organizer.new
