@@ -15,11 +15,31 @@ class Event < ActiveRecord::Base
 
 	belongs_to :organizer
 
-	after_create :send_confirmation_email
+	after_create :send_confirmation_email, :send_participants_email
 
   validates :organizer, presence: true
 
   validate :deadline_is_in_the_future
+
+  def participant_emails
+  end
+
+  def participant_emails=(comma_seperated_emails)
+    emails = comma_seperated_emails.split(',')
+    emails.map!(&:squish)
+
+    emails.each do |email|
+      participant = Participant.create(email: email, event: self)
+      # participant.event = self
+      # participant.save
+    end
+  end
+
+  def send_participants_email
+    participants.each do |participant|
+      participant.send_invite_email
+    end
+  end
 
   def send_confirmation_email
     EventNotifier.confirmation_email(self).deliver!
@@ -37,13 +57,13 @@ class Event < ActiveRecord::Base
   end
 
   def self.send_all_events_past_deadline
-    Event.where(deadline_email_sent: false).all.each do |event|
+    Event.where(deadline_email_sent: false).to_a.each do |event|
       event.send_deadline_email
     end
   end
 
   def deadline_is_in_the_future
-    if deadline < Time.now
+    if deadline && deadline < Time.now
       errors.add(:deadline, 'cannot be set for a time in the past')
     end
   end

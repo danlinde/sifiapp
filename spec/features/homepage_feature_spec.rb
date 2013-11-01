@@ -20,7 +20,7 @@ describe 'Homepage' do
 		end
 
 		it 'should allow you to create a new event' do
-			expect(page).to have_link "Create event"
+			expect(page).to have_link "Create an event now"
 		end
 	end
 end
