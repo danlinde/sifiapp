@@ -7,7 +7,11 @@ $(".time-select").windowed({
 });
 
 $(document).ready(function(){
-	$("#email_input").inputosaurus();
+	$("#email_input").inputosaurus({
+		inputDelimiters : [",",";"," "],
+		width: "30%",
+		parseOnBlur: true
+	});
 });
 
 $('.datetimepicker').datetimepicker({

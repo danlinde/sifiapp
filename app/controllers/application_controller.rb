@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def nag_user_for_email
+    return if request.path == "/organizers/logout"
   	if current_organizer && current_organizer.email.blank?
 		  redirect_to '/authentications/get_email'
 	  end

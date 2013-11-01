@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131101114232) do
+ActiveRecord::Schema.define(version: 20131101142452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20131101114232) do
     t.integer  "event_id"
   end
 
-  add_index "organizers", ["email"], name: "index_organizers_on_email", unique: true, using: :btree
   add_index "organizers", ["event_id"], name: "index_organizers_on_event_id", using: :btree
   add_index "organizers", ["reset_password_token"], name: "index_organizers_on_reset_password_token", unique: true, using: :btree
 
