@@ -27,7 +27,6 @@
 		<ul><% @event.participants.each do |f| %>
 			
 			<%= content_tag :li, f.email %>
-			<%= content_tag :li, f.first_name + " " + f.last_name %>
 			<%= content_tag :li, f.response, :"data-id" => f.id %>
 
 			<% end %>

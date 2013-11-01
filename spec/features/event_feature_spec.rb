@@ -18,8 +18,8 @@ describe 'event' do
 
 			fill_in 'Name', with: 'Team Lunch Wednesday'
 			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
-			#fill_in 'Deadline', with: '2013-11-06 11:00'
-			fill_in 'Email', with: "ting@tong.com"
+			select '2014', from: 'event[deadline(1i)]'
+			fill_in 'event[participant_emails]', with: "ting@tong.com"
 			fill_in 'Link', with: "http://google.com"
 
 
@@ -33,15 +33,13 @@ describe 'event' do
 
 			fill_in 'Name', with: 'Team Lunch Wednesday'
 			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
-			#fill_in 'Deadline', with: '2013-11-06 11:00'
-			fill_in 'Email', with: 'ting@gmail.com'
-			fill_in 'First name', with: "Ting"
-			fill_in "Last name", with: "Tings"
+			select '2014', from: 'event[deadline(1i)]'
+			fill_in 'event[participant_emails]', with: 'ting@gmail.com, dave@dave.com,'
 
 			click_button 'Create Event'
 
 			expect(page).to have_content 'ting@gmail.com'
-			expect(page).to have_content 'Ting Tings'
+			expect(page).to have_content 'dave@dave.com'
 		end
 
 	end

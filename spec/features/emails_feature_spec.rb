@@ -9,7 +9,7 @@ describe 'an event confirmation email' do
   context 'dinner has already been created' do
 
   	before(:all) {
-		@dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", organizer: Organizer.new(:email=>"a@example.com"), deadline: "2013-11-08 13:00"})
+		@dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", organizer: Organizer.new(:email=>"a@example.com"), deadline: "2013-11-08 13:00", participant_emails: "ting@ting.com"})
   	}
 
 	  it 'should have subject "Event Confirmation"'  do
