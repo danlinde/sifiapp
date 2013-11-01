@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 
 	has_many :participants
-	accepts_nested_attributes_for :participants
+	# accepts_nested_attributes_for :participants
 
 
 
@@ -15,9 +15,29 @@ class Event < ActiveRecord::Base
 
 	belongs_to :organizer
 
-	after_create :send_confirmation_email
+	after_create :send_confirmation_email, :send_participants_email
 
   validates :organizer, presence: true
+
+  def participant_emails
+  end
+
+  def participant_emails=(comma_seperated_emails)
+    emails = comma_seperated_emails.split(',')
+    emails.map!(&:squish)
+
+    emails.each do |email|
+      participant = Participant.find_or_initialize_by_email(email)
+      participant.event = self
+      participant.save
+    end
+  end
+
+  def send_participants_email
+    participants.each do |participant|
+      participant.send_invite_email
+    end
+  end
 
   def send_confirmation_email
     EventNotifier.confirmation_email(self).deliver!

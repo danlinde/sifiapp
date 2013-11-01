@@ -2,10 +2,7 @@
 
 FactoryGirl.define do
   factory :participant do
-    email "MyString"
-    first_name "MyString"
-    last_name "MyString"
+    email "ting@ting.com"
     token "32characters"
-    event
   end
 end
