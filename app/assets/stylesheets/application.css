@@ -56,8 +56,43 @@ background-color: #FF5600;
    background-color: #A63800; 
   }
 
+
+
 /*.container {
 	padding: 0px 50px;
 }																																																																																																																																																																																																																																																																																																																																																																																																				0--00--0-0=-00-0-0-089=-0--08	-0001================10==1018=1=8																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		
 causing errors*/
+
+.Invite_Status {
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.li_email {
+  border-bottom: 1px solid #ccc;
+}
+
+.li_email:last-child {
+  border: none;
+}
+
+.li_email {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  width: 200px;
+
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.li_email:hover {
+  font-size: 1.3em;
+  background: #f6f6f6;
+}
 
