@@ -8,10 +8,6 @@ class Participant < ActiveRecord::Base
     self.token ||= SecureRandom.urlsafe_base64(32)
   end
 
-
-
-
-
   def send_invite_email
     ParticipantNotifier.confirmation_email(event, self).deliver!
   end 
