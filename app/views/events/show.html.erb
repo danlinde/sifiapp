@@ -33,7 +33,8 @@
 			<% end %>
 		</ul>
 
-		<h3><%= @event.link %></h3>
+		<h3>Link: </h3>
+		<p><%= link_to @event.link %></p>
 
 
 		<% if current_organizer == @event.organizer %>
