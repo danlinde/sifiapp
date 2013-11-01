@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20131101142452) do
     t.datetime "image_updated_at"
     t.integer  "organizer_id"
     t.boolean  "deadline_email_sent", default: false
+    t.datetime "event_date"
   end
 
   create_table "organizers", force: true do |t|
