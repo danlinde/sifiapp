@@ -32,4 +32,8 @@ class Organizer < ActiveRecord::Base
     super && authentications.empty?
   end
 
+  def stripe_connected?
+    authentications.where(provider: 'stripe_connect').any?
+  end
+
 end

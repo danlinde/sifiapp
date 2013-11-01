@@ -9,3 +9,7 @@ $(".time-select").windowed({
 $(document).ready(function(){
 	$("#email_input").inputosaurus();
 });
+
+$('.datetimepicker').datetimepicker({
+	dateFormat: 'dd-mm-yy'
+});

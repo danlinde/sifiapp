@@ -21,6 +21,8 @@ class Event < ActiveRecord::Base
 
   validate :deadline_is_in_the_future
 
+  validate :event_date_must_be_after_deadline
+
   def participant_emails
   end
 
@@ -53,13 +55,19 @@ class Event < ActiveRecord::Base
 
   def self.send_all_events_past_deadline
     Event.where(deadline_email_sent: false).to_a.each do |event|
-      event.send_deadline_email
+     event.send_deadline_email
     end
   end
 
   def deadline_is_in_the_future
     if deadline && deadline < Time.now
       errors.add(:deadline, 'cannot be set for a time in the past')
+    end
+  end
+
+   def event_date_must_be_after_deadline
+    if event_date && deadline && event_date < deadline
+      errors.add(:event_date, "can't before deadline date")
     end
   end
 
