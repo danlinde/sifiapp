@@ -6,5 +6,6 @@ FactoryGirl.define do
     description "MyText"
     deadline "2012-10-28 11:35:44"
     organizer
+    participant
   end
 end

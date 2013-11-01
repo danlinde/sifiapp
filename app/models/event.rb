@@ -19,6 +19,8 @@ class Event < ActiveRecord::Base
 
   validates :organizer, presence: true
 
+  validate :deadline_is_in_the_future
+
   def send_confirmation_email
     EventNotifier.confirmation_email(self).deliver!
   end
@@ -39,4 +41,11 @@ class Event < ActiveRecord::Base
       event.send_deadline_email
     end
   end
+
+  def deadline_is_in_the_future
+    if deadline < Time.now
+      errors.add(:deadline, 'cannot be set for a time in the past')
+    end
+  end
+
 end
