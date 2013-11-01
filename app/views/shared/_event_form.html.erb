@@ -1,40 +1,62 @@
 
 
 <%= form_for @event, html: {multipart: true } do |e| %>
-<div class="row">
-	<div class="large-6 columns">
-		<%= e.label :name %>
-		<%= e.text_field :name, :required => true%>
-	</div>
-	<div class="large-6 columns">
-		<%= e.label :description %>
-		<%= e.text_field :description, :required => true %>
-	</div>
-</div>
-<div class="row">
-	<div class="large-3 columns">
-		<%= e.label :deadline %>
-		<%= e.text_field :deadline, class: "datetimepicker", :required => true %>
-	</div>
-	<div class="large-3 columns">
-		<%= e.label :event_date %>
-		<%= e.text_field :event_date, class: "datetimepicker", :required => true %>
-	</div>
-	<div class="large-3 columns">
-		<%= e.label :link %>
-		<%= e.text_field :link, :required => true %>
-	</div>
-	<div class-"large-2 columns">
-		<%= e.label :image %>
-		<%= e.file_field :image, class: "button secondary" %>
-		<%= e.hidden_field :organizer_id, value: current_organizer.id, :required => true %>
-	</div>
-</div>
+<div class="large-8 columns">
+<form >
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns">
+				<%= e.label :name %>
+				<%= e.text_field :name, :required => true%>
+			</div>
 
-<div class-"row">
-	<%= e.label :participant_emails %>
-	<%= e.text_field :participant_emails, id: "email_input", placeholder: "Enter your email" %>
-</div>
-	
-	<%= e.submit id:'event_form_submit', class: "button" %>
+		    <div class="large-4 columns">
+				<%= e.label :deadline %>
+				<%= e.text_field :deadline, class: "datetimepicker", :required => true %>
+			</div>
+
+			<div class="large-4 columns">
+				<%= e.label :event_date %>
+				<%= e.text_field :event_date, class: "datetimepicker", :required => true %>
+			</div>
+			
+		</div>
+
+			
+		<div class="row">
+			<div class="large-6 columns">
+				<%= e.label :link %>
+				<%= e.text_field :link  %>
+			</div>
+
+			 <div class-"large-6 columns">
+				<%= e.label :image %>
+				<%= e.file_field :image, class: "button secondary" %>
+				<%= e.hidden_field :organizer_id, value: current_organizer.id %>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="large-12 columns">
+				<%= e.label :description %>
+				<%= e.text_area :description%>
+			</div>
+
+		</div>
+
+		<div class="row">
+		    <div class="large-12 columns">
+			<%= e.label :participant_emails %>
+			<%= e.text_field :participant_emails, id: "email_input", placeholder: "Enter your email" %>
+			</div>
+
+		</div>
+
+
+	</fieldset>
+</form>	
+</div>	
+<%= e.submit id:'event_form_submit', class: "button" %>
 <% end %>
+
