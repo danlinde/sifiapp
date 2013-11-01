@@ -33,7 +33,7 @@ class Event < ActiveRecord::Base
 
   def populate_and_email_participants
     return if @participant_emails.blank?
-    
+
     @participant_emails.each do |email|
       participant = Participant.create(email: email, event: self)
       participant.send_invite_email

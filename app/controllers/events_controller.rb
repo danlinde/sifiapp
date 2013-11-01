@@ -21,6 +21,8 @@ class EventsController < ApplicationController
 		@event = Event.find params[:id]
 		@token = params[:token]
 		@participant = Participant.find_by_token(params[:token])
+
+		@participants = @event.participants
 	end
 
 	def edit
