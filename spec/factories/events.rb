@@ -6,6 +6,7 @@ FactoryGirl.define do
     description "MyText"
     deadline "2014-10-28 11:35:44"
     organizer
+
     after(:create) do |event|
     	# FactoryGirl.create_list(:participants, 2, event: event)
 	    event.participants << FactoryGirl.create(:participant)

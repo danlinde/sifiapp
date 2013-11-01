@@ -14,8 +14,8 @@ describe Event do
 		expect(event.image.exists?(:thumb)).to be_true
 	end
 
-	# it 'cannot have its deadline set in the past' do
-	# 	expect {create(:event, deadline: "2012-10-28 11:00:00")}.to raise_error
-	# end
+	it 'cannot have its deadline set in the past' do
+		expect(build(:event, deadline: "2012-10-28 11:00:00")).not_to be_valid
+	end
 
 end

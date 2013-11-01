@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   validate :deadline_must_be_after_today
   validate :event_date_must_be_after_deadline
 
-  # validate :deadline_is_in_the_future
+  validate :deadline_is_in_the_future
 
   def participant_emails
   end
@@ -31,9 +31,9 @@ class Event < ActiveRecord::Base
     emails.map!(&:squish)
 
     emails.each do |email|
-      participant = Participant.find_or_initialize_by_email(email)
-      participant.event = self
-      participant.save
+      participant = Participant.create(email: email, event: self)
+      # participant.event = self
+      # participant.save
     end
   end
 
@@ -64,24 +64,24 @@ class Event < ActiveRecord::Base
     end
   end
 
-<<<<<<< HEAD
-  def deadline_must_be_after_today
-    if deadline < Time.now
-      errors.add(:deadline, "can't be in the past")
-    end
-  end
+
+  # def deadline_must_be_after_today
+  #   if deadline < Time.now
+  #     errors.add(:deadline, "can't be in the past")
+  #   end
+  # end
 
   def event_date_must_be_after_deadline
     if event_date < deadline
       errors.add(:event_date, "can't before deadline date")
     end
   end
-=======
-  # def deadline_is_in_the_future
-  #   if deadline < Time.now
-  #     errors.add(:deadline, 'cannot be set for a time in the past')
-  #   end
-  # end
 
->>>>>>> master
+
+  def deadline_is_in_the_future
+    if deadline && deadline < Time.now
+      errors.add(:deadline, 'cannot be set for a time in the past')
+    end
+  end
+
 end
