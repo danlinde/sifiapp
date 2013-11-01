@@ -18,6 +18,8 @@ class Event < ActiveRecord::Base
 	after_create :send_confirmation_email
 
   validates :organizer, presence: true
+  validate :deadline_must_be_after_today
+  validate :event_date_must_be_after_deadline
 
   def send_confirmation_email
     EventNotifier.confirmation_email(self).deliver!
@@ -37,6 +39,18 @@ class Event < ActiveRecord::Base
   def self.send_all_events_past_deadline
     Event.where(deadline_email_sent: false).all.each do |event|
       event.send_deadline_email
+    end
+  end
+
+  def deadline_must_be_after_today
+    if deadline < Time.now
+      errors.add(:deadline, "can't be in the past")
+    end
+  end
+
+  def event_date_must_be_after_deadline
+    if event_date < deadline
+      errors.add(:event_date, "can't before deadline date")
     end
   end
 end

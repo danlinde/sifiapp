@@ -4,26 +4,30 @@
 <div class="row">
 	<div class="large-6 columns">
 		<%= e.label :name %>
-		<%= e.text_field :name %>
+		<%= e.text_field :name, :required => true%>
 	</div>
 	<div class="large-6 columns">
 		<%= e.label :description %>
-		<%= e.text_field :description %>
+		<%= e.text_field :description, :required => true %>
 	</div>
 </div>
 <div class="row">
 	<div class="large-3 columns">
 		<%= e.label :deadline %>
-		<%= e.datetime_select :deadline, :order => [:day, :month, :year, :hour, :minute] %>
+		<%= e.text_field :deadline, class: "datetimepicker", :required => true %>
+	</div>
+	<div class="large-3 columns">
+		<%= e.label :event_date %>
+		<%= e.text_field :event_date, class: "datetimepicker", :required => true %>
 	</div>
 	<div class="large-3 columns">
 		<%= e.label :link %>
-		<%= e.text_field :link %>
+		<%= e.text_field :link, :required => true %>
 	</div>
 	<div class-"large-2 columns">
 		<%= e.label :image %>
 		<%= e.file_field :image, class: "button secondary" %>
-		<%= e.hidden_field :organizer_id, value: current_organizer.id %>
+		<%= e.hidden_field :organizer_id, value: current_organizer.id, :required => true %>
 	</div>
 </div>
 		
