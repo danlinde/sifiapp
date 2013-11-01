@@ -1,5 +1,5 @@
 <p>Hi <%= @participant.first_name %>,</p>
 
-<p>Your new event <%= link_to @event.name, participant_token_url(@event, @participant.token) %>.</p>
+<p>Your new event <%= link_to @participant.event.name, participant_token_url(@event, @participant.token) %>.</p>
 
 </html>

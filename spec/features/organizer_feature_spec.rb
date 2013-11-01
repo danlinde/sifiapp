@@ -17,7 +17,7 @@ describe 'Organizer' do
       click_button 'Sign up'
 
       expect(current_path).to eq organizer_path(Organizer.last)
-      expect(page).to have_css('.notice', text: "Welcome! You have signed up successfully.")
+      expect(page).to have_css '#notice', text: "Welcome! You have signed up successfully."
     end
 
   end

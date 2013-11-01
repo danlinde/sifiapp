@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 
 	has_many :participants
-	# accepts_nested_attributes_for :participants
+	accepts_nested_attributes_for :participants
 
 
 
@@ -18,6 +18,8 @@ class Event < ActiveRecord::Base
 	after_create :send_confirmation_email, :send_participants_email
 
   validates :organizer, presence: true
+
+  # validate :deadline_is_in_the_future
 
   def participant_emails
   end
@@ -55,8 +57,15 @@ class Event < ActiveRecord::Base
   end
 
   def self.send_all_events_past_deadline
-    Event.where(deadline_email_sent: false).all.each do |event|
+    Event.where(deadline_email_sent: false).to_a.each do |event|
       event.send_deadline_email
     end
   end
+
+  # def deadline_is_in_the_future
+  #   if deadline < Time.now
+  #     errors.add(:deadline, 'cannot be set for a time in the past')
+  #   end
+  # end
+
 end
