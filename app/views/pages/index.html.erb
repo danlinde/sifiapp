@@ -1,33 +1,103 @@
 
-<div class="row panel">
-	<div class="large-12 columns center">
+<div class="row homefirst">
+	<div class="large-6 columns">
 		<h3>Want to organise an event? </h3>
-		<h3>Don't want to chase after all your friends?</h3>
+		<h3>Don't want to chase after all your friends for money?</h3>
 		<br>
 		<br>
 		<h2> Set it and Forget it! </h2>
 	</div>
 
-</div>
-
-<div class="row">
-
-
-<% if current_organizer %>
-
 	<div class="large-6 columns">
-	<p class="center_button animated slideInLeft"><%= link_to "Create an event now", new_event_path, class: "button large radius" %></p>
-</div>
-	<div class="large-6 columns">
-	<p class="center_button animated slideInRight"><%= link_to "View your events page", organizer_path(current_organizer), class: "button large radius" %></p>
+	
+	<% if current_organizer %>
+
+	<div class="home_button">
+		<p class="center_button animated slideInRight"><%= link_to "Create an event now", new_event_path, class: "button large radius" %></p>
 	</div>
 
-<% else %>
+	<div class="home_button">
+		<p class="center_button animated slideInRight"><%= link_to "View your event page", organizer_path(current_organizer), class: "button large radius" %></p>
+	</div>
 
-<p class="center_button animated slideInLeft"><%= link_to "Create your event now", new_event_path, class: "button large radius" %></p>
+	<% else %>
 
-<% end %>
+	<div class="home_button">
+		<p class="center_button animated slideInRight"><%= link_to "Create your event now", new_event_path, class: "button large radius" %></p>
+	</div>
+	<% end %>
+
+
+	</div>
+</div>
+
+<div class="row homesecond" >
+	<div id="threesteps" class="large-12 columns center">
+		<h5> The easiest way to organise an event and collect money from your friends:</h5>
+	</div>
+</div>
+
+<div class="row homesecond" >
+
+	<div class="large-1 columns">
+	</div>
+
+	<div class="large-2 columns">
+		<%= image_tag("1calendar.png")  %>
+	</div>
+
+	<div class="large-2 columns arrow">
+		<%= image_tag("4arrow.png")  %>
+	</div>
+
+	<div class="large-2 columns">
+		<%= image_tag("2email.png")  %>
+	</div>
+
+	<div class="large-2 columns arrow">
+		<%= image_tag("4arrow.png")  %>
+	</div>
+
+	<div class="large-2 columns">
+		<%= image_tag("3-payment.png")  %>
+	</div>
+
+	<div class="large-1 columns">
+	</div>
 
 </div>
+
+<div class="row homesecond" >
+	<div class="large-12 columns center">
+		<h5>Secure. Easy. Fun. <%= image_tag("solid@2x.png") %></h5>
+	</div>
+</div>
+
+
+
+<footer>
+
+	<div class="row">
+
+	<div class="large-8 columns" >
+		<ul class="inline-list footlist">
+			<li><a href="/aboutus">About us</a></li>
+			<li><a href="/contact">Contact</a></li>
+		</ul>
+		<p class="copyright">© 2013 SetForget.It All rights reserved.</p>
+
+	</div>
+	<div class="large-4 columns" >
+		<ul class="home-social">
+			<li><a href="http://www.twitter.com/setforgetit" class="twitter"></a></li>
+			<li><a href="http://www.facebook.com/setforgetit" class="facebook"></a></li>
+			<li><a href="http://www.setforget.it/contact" class="contact"></a></li>
+		</ul>
+	</div>
+	</div>
+
+	
+
+</footer>
 
 

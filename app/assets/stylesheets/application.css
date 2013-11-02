@@ -19,6 +19,32 @@
  *= jquery-ui-timepicker-addon.css
  */
 
+.homefirst {
+  background-color: #FFA273;;
+}
+.homefirst h3 {
+color: #A63800;
+}
+
+.homesecond {
+  background-image:url(pattern.jpg); background-repeat:repeat”
+}
+
+.homesecond img {
+  margin: 30px 20px 30px 20px;
+  vertical-align: middle;
+  max-width: 200px;
+}
+
+.arrow img {
+  max-width: 100px;
+  vertical-align: middle;
+  padding-top: 80px;
+}
+
+.name img {
+  vertical-align: middle;
+}
 
 #twitter img {
 	vertical-align: middle;
@@ -30,6 +56,10 @@
 
 .center_button	{
 text-align: center;
+}
+
+.home_button {
+  padding-top:20px;
 }
 
 .button a {
@@ -97,3 +127,57 @@ causing errors*/
   background: #f6f6f6;
 }
 
+footer  {
+  background: #333;
+  padding: 24px 0 10px;
+}
+
+footer ul.home-social {
+  display: block;
+  float: right;
+  margin-bottom: 8px; 
+  vertical-align: middle;
+  position: relative;
+}
+
+footer ul.home-social li {
+  list-style: none;
+  display: block;
+  float: left;
+  margin-left: 10px; }
+
+footer ul.home-social li:first-child {
+  margin-left: 0; }
+
+footer ul.home-social li a {
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: url("socialimages.png") no-repeat center 0; }
+
+footer ul.home-social li a:hover {
+  opacity: 0.8; }
+
+footer ul.home-social li a.twitter {
+  background-position: center 0; }
+
+footer ul.home-social li a.facebook {
+  background-position: center -200px; }
+
+footer ul.home-social li a.mail {
+  background-position: center -400px; }
+
+
+footer .copyright{
+margin: 6px 0 0;
+font-size: 12px;
+color: #666;
+}
+
+.footlist {
+  color: #666;
+}
+
+#threesteps {
+  padding-top: 20px;
+}
