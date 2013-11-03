@@ -50,13 +50,17 @@
 			<%= e.label :participant_emails %>
 			<%= e.text_field :participant_emails, id: "email_input", placeholder: "Enter your email" %>
 			</div>
-
 		</div>
 
-
+		<div class="row">
+			<div class="large-12 columns">
+				<%= e.submit id:'event_form_submit', class: "button" %>
+			</div>
+		</div>
+		
 	</fieldset>
-<%= e.submit id:'event_form_submit', class: "button" %>
-</form>	
+
+	</form>	
 </div>	
 
 <% end %>
