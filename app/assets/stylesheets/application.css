@@ -19,6 +19,26 @@
  *= jquery-ui-timepicker-addon.css
  */
 
+.top-bar-section ul li a:not(.button):hover {     /* Topbar menu items. */
+    background-color: #FFA273;
+    
+}
+
+.top-bar-section ul li a:not(.button):active {     /* Topbar menu items. */
+    background-color: #FFA273;
+    
+}
+
+.top-bar .name h1 a:hover {     /* This one is optional. Text logo on the left of the Topbar. */
+    background-color: #FFA273;
+    
+}
+
+.top-bar .name h1 a:active {     /* This one is optional. Text logo on the left of the Topbar. */
+    background-color: #FFA273;
+    
+}
+
 .homefirst {
   background-color: #FFA273;;
 }

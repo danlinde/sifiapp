@@ -1980,7 +1980,7 @@ $button-disabled-opacity: 5.5;
 //
 
 // Background color for the top bar
-$topbar-bg: #04376C;
+$topbar-bg: white;
 
 // Height and margin
 $topbar-height: 90px;
@@ -1994,7 +1994,7 @@ $topbar-margin-bottom: emCalc(0px);
 $topbar-title-font-size: emCalc(26px);
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #689CD3;
+$topbar-link-color: black;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13px);
 
@@ -2014,6 +2014,7 @@ $topbar-link-color: #689CD3;
 // $topbar-menu-icon-color: #fff;
 // $topbar-menu-link-color-toggled: #888;
 // $topbar-menu-icon-color-toggled: #888;
+$topbar-link-color-hover: white;
 
 // Transitions and breakpoint styles
 // $topbar-transition-speed: 300ms;
