@@ -5,5 +5,8 @@
 dispatcher = new WebSocketRails 'localhost:3000/websocket'
 channel = dispatcher.subscribe 'responses'
 channel.bind 'new', (participant) ->
-	$('[data-id=' + participant.id + ']').text(participant.response)
+	# next line can be used to update response if using text
+	# $('[data-id=' + participant.id + ']').text(participant.response)
+	# next line can be used to update response if ordering responses
+	$('#response').load document.URL+' #response';
 
