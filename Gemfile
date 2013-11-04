@@ -60,6 +60,8 @@ gem 'omniauth-stripe-connect'
 # dotenv loads environment variables from .env into ENV
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
 	gem 'rspec-rails', "~>2.0"
 	gem 'capybara'
@@ -84,3 +86,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby '2.0.0'
