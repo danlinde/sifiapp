@@ -20,7 +20,9 @@
   </tr>
   <tr>
    <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 20px;text-align: cente">
+
     Description:  <%= @participant.event.description %>
+
    </td>
   </tr>
   <tr>
@@ -34,7 +36,9 @@
    </td>
    <tr>
    <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 30px;text-align: cente">
+
      <%= link_to "View Invitation", participant_token_url(@event, @participant.token) %>
+
     
    </td>
  </table>

@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 	def create
 		@event = Event.new(event_params)
 
-		if @event.save
+		if @event.save!
 			flash.notice = "You created an event"
 			redirect_to event_path(@event)
 		else
@@ -27,6 +27,7 @@ class EventsController < ApplicationController
 
 	def edit
 		@event = Event.find params[:id]
+		@edit = true
 	end
 
 	def update

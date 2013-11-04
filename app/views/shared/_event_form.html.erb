@@ -2,7 +2,6 @@
 
 <%= form_for @event, html: {multipart: true } do |e| %>
 <div class="large-8 columns">
-<form >
 	<fieldset>
 		<div class="row">
 			<div class="large-4 columns">
@@ -45,6 +44,19 @@
 
 		</div>
 
+		<% if @edit %>
+			<div class="row">
+				<div class="large-12 columns">
+					<h5>Current Invitees</h5>
+					<ul class="no-bullet">
+						<% @event.participants.each do |f| %>
+							<li><%= f.email %> | <%= f.response %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		<% end %>
+
 		<div class="row">
 		    <div class="large-12 columns">
 			<%= e.label :participant_emails %>
@@ -60,7 +72,6 @@
 		
 	</fieldset>
 
-	</form>	
 </div>	
 
 <% end %>
