@@ -10,21 +10,31 @@
 	</div>
 </div>
 
-<ul>
+	<div class="row">
 	<% @organizer.events.each do |event| %>
 		
-		<div class="row panel">
-			<div class="large-3 columns">
-			<%= image_tag event.image.url(:thumb), class: 'event_image' %>
-				
-			</div>
-			<div class="large-9 columns">
+			<div id="event_listing" class="large-3 columns">
+				<div class="hovering">					
+					<h4><%= link_to "#{event.name}", event_path(event) %></h4>
+					<%= link_to event_path(event) do %>
+						<%= image_tag event.image.url(:thumb), class: 'event_image' %>
+					<% end %>
+				</div>
 
-				<h4><%= link_to "#{event.name}", event_path(event) %></h4>
-				<p><%= event.description %></p>
+	      		<div class="togglebox">
+					<div class="content">
+					<ul class="no-bullet">
+						<li><%= event.description %></li>
+					
+						<li>Response deadline: <%= nice_date event.deadline %></li>
+
+						<li>Event date: <%= nice_date event.event_date %></li>
+				        
+				<!--Content Here-->
+					</div>
+				</div>
+
 			</div>
-		</div>
-	</div>
 	<% end %>
-</ul>
+	</div>
 
