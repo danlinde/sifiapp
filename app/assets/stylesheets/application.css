@@ -19,9 +19,13 @@
  *= jquery-ui-timepicker-addon.css
  */
 
-.row {
+.pagewrap {
   background-image: url('shattered.png');
-  background-repeat:repeat;
+  background-repeat:repeat; 
+}
+
+.pagewrap .row {
+  min-width: 80%;
 }
 .top-bar-section ul li a:not(.button):hover {     /* Topbar menu items. */
     background-color: #FFA273;
