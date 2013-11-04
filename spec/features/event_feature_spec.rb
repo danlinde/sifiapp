@@ -19,15 +19,17 @@ describe 'event' do
 			fill_in 'Name', with: 'Team Lunch Wednesday'
 			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
 			fill_in 'Deadline', with: "2013-12-05 00:00:00"
+			fill_in 'Event date', with: "2013-12-06 00:00:00"
 			fill_in 'event[participant_emails]', with: "ting@tong.com, dave@dave.com"
 			fill_in 'Link', with: "http://google.com"
             click_button 'Create Event'
 
             event = Event.last
-            raise event
-            expect(current_path).to eq event_path(event.id)
+            # raise page.html
+            # raise event
+            expect(current_path).to eq event_path(event)
             expect(page).to have_content 'Team Lunch Wednesday'
-            expect(page).to have_content 'ting@gmail.com'
+            expect(page).to have_content 'ting@tong.com'
 			expect(page).to have_content 'dave@dave.com'
            
 		end
@@ -84,6 +86,7 @@ describe 'event' do
 			organizer = FactoryGirl.create(:organizer)
 			@event = FactoryGirl.create(:event, organizer: organizer)
 			login_as(organizer, :scope => :organizer)
+			# raise "invalid" unless @event.valid?
 		end
 
 		it 'an organiser can delete an event' do
@@ -97,6 +100,8 @@ describe 'event' do
 			click_link "Edit event"
 			fill_in "Name", with: "Renamed event"
 			click_button "event_form_submit"
+			# raise Event.find(@event.id).inspect
+			expect(current_url).to eq url_for(@event)
 			expect(page).to have_content "Renamed event"
 		end
 
