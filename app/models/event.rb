@@ -23,9 +23,6 @@ class Event < ActiveRecord::Base
 
   validate :event_date_must_be_after_deadline
 
-  def participant_emails
-  end
-
   def participant_emails=(comma_seperated_emails)
     emails = comma_seperated_emails.split(',')
     @participant_emails = emails.map!(&:squish)

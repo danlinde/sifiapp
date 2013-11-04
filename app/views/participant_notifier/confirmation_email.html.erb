@@ -1,5 +1,92 @@
-<p>Hi <%= @participant.first_name %>,</p>
 
-<p>Your new event <%= link_to @participant.event.name, participant_token_url(@event, @participant.token) %>.</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Invitaion Emal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
 
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
+
+ <tr>
+  <td bgcolor="#70bbd9"style="padding: 40px 30px 40px 30px;">
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 40px; font-style:italic;text-align: cente">
+ 
+    You Are Invited :) <%= @participant.event.name %>
+   </td>
+  </tr>
+  <tr>
+   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 20px;text-align: cente">
+    Row 2 <%= @participant.event.description %>
+   </td>
+  </tr>
+  <tr>
+   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 20px;text-align: cente">
+     Host: 
+   </td>
+  </tr>
+  <tr>
+   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 20px;text-align: cente">
+     Your deadline: <%= @participant.event.deadline %>
+   </td>
+   <tr>
+   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 30px;text-align: cente">
+     <%= link_to View Invitation, participant_token_url(@event, @participant.token) %>
+    
+   </td>
+ </table>
+</td>
+</tr>
+ <tr>
+  <td bgcolor="#ee4c50" style="padding: 30px 30px 30px 30px;">
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr>
+  <td align="left">
+    <table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+   <td>
+    <a href="http://www.setitforget.it">
+     <img src="images/SetForget.png" alt="logo" style="display: block;" border="0" />
+    </a>
+   </td>
+  <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
+   <td style="padding: 20px 0 0 0; color: #70bbd9; font-family: Arial, sans-serif; font-size: 14px;">
+ &reg; SetItForget.it 2013<br/>
+ <a href="#" style="color: #70bbd9;"><font color="#ffffff">Privacy Policy</font></a> 
+</td>
+  
+  </td>
+  </tr>
+ </table>
+  
+    <td align="right">
+ <table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+   <td>
+    <a href="http://www.twitter.com/">
+     <img src="images/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
+    </a>
+   </td>
+   <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
+   <td>
+    <a href="http://www.twitter.com/">
+     <img src="images/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
+    </a>
+   </td>
+  </tr>
+ </table>
+
+
+
+
+  </td>
+ </tr>
+</table>
+  </td>
+ </tr>
+ 
+</table>
 </html>

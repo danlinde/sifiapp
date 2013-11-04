@@ -19,28 +19,34 @@ describe 'event' do
 			fill_in 'Name', with: 'Team Lunch Wednesday'
 			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
 			fill_in 'Deadline', with: "2013-12-05 00:00:00"
-			fill_in 'event[participant_emails]', with: "ting@tong.com"
+			fill_in 'event[participant_emails]', with: "ting@tong.com, dave@dave.com"
 			fill_in 'Link', with: "http://google.com"
+            click_button 'Create Event'
 
-
-			click_button 'Create Event'
-
-			expect(page).to have_content 'You created an event'
-		end
-
-		it 'an organiser can choose participants' do
-			visit new_event_path
-
-			fill_in 'Name', with: 'Team Lunch Wednesday'
-			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
-			fill_in 'Deadline', with: "2013-12-05 00:00:00"
-			fill_in 'event[participant_emails]', with: 'ting@gmail.com, dave@dave.com,'
-
-			click_button 'Create Event'
-
-			expect(page).to have_content 'ting@gmail.com'
+            event = Event.last
+            raise event
+            expect(current_path).to eq event_path(event.id)
+            expect(page).to have_content 'Team Lunch Wednesday'
+            expect(page).to have_content 'ting@gmail.com'
 			expect(page).to have_content 'dave@dave.com'
+           
 		end
+
+
+		# it 'an organiser can choose participants' do
+		# 	visit new_event_path
+
+		# 	fill_in 'Name', with: 'Team Lunch Wednesday'
+		# 	fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
+		# 	fill_in 'Deadline', with: "2013-12-05 00:00:00"
+		# 	fill_in 'event[participant_emails]', with: 'ting@gmail.com, dave@dave.com,'
+
+		# 	click_button 'Create Event'
+		# 	expect(current_url).to eq url_for(Event.last)
+
+		# 	expect(page).to have_content 'ting@gmail.com'
+		# 	expect(page).to have_content 'dave@dave.com'
+		# end
 
 	end
 
@@ -54,14 +60,14 @@ describe 'event' do
 		it 'an organiser or participant can view an event' do
 			visit event_path(@dinner)
 
-			expect(page).to have_css 'h1', text: "Dinner on Friday"
+			expect(page).to have_css 'h3', text: "Dinner on Friday"
 			expect(current_url).to eq url_for(@dinner)
 		end
 
 		it 'an organiser or participant can view an event with participants' do
 			visit event_path(@dinner)
 
-			expect(page).to have_css 'h1', text: "Dinner on Friday"
+			expect(page).to have_css 'h3', text: "Dinner on Friday"
 			expect(page).to have_css 'li', text: "ting@ting.com"		
 		end
 
@@ -76,17 +82,18 @@ describe 'event' do
 
 		before(:each) do
 			organizer = FactoryGirl.create(:organizer)
-			event = FactoryGirl.create(:event, organizer: organizer)
+			@event = FactoryGirl.create(:event, organizer: organizer)
 			login_as(organizer, :scope => :organizer)
-			visit event_path(event)
 		end
 
 		it 'an organiser can delete an event' do
+			visit event_path(@event)
 			click_button "Delete Event"
 			current_path.should == root_path
 		end
 
 		it 'an organiser can edit an event' do
+			visit event_path(@event)
 			click_link "Edit event"
 			fill_in "Name", with: "Renamed event"
 			click_button "event_form_submit"
