@@ -6,51 +6,53 @@
 	<div class="large-12 columns">
 		<h3 ><%= @event.name %></h3>
 	</div>
-	<div class="small-6 columns">
 
-		<div class="large-12 columns">
+	<div class="row">
+
+		<div class="large-6 columns">
            <div class = "panel">
-			<p><h5 textlign = "centre">Your RSVP is due in:<%= nice_date @event.deadline %></h5></p>
+			<p><h5>Your RSVP is due by:</h5>
+				<h6><%= nice_date @event.deadline %></h6></p>
+				<h5><%= Count Down to Deadline</h5>
 			<div id="timer" data-ends-at="<%= iso8601_date @event.deadline %>"></div>
 		   </div> 
-		</div>
+		    <hr>
 
-        <div class="large-12 columns">
-        	<p><h6>Event Date:</h6>
-			<span><%= nice_date @event.event_date %></span></p>
-			<p><%= @event.description %></p>
-			<p>Link: <%= link_to @event.link %></p>
-	    </div>
+	        <div>
+	        	<p><h6>Event Date:</h6>
+				<span><%= nice_date @event.event_date %></span></p>
+				<p><%= @event.description %></p>
+				<p>Link: <%= link_to @event.link %></p>
+		    </div>
+
+		   
   
-		 <div class="large-12 columns">
-			<% if current_organizer == @event.organizer %>
-				<p><%= link_to "Edit event", edit_event_path(@event),class: "button radius" %></p>
-				<p><%= button_to "Delete Event", @event, class: "button radius",:method=>:delete, data: {confirm: 'Are you sure?'} %></p>
+		 	<div>
+				<% if current_organizer == @event.organizer %>
+				<a><%= link_to "Edit event", edit_event_path(@event),class: "button radius" %></a>
+				<a><%= button_to "Delete Event", @event, class: "button radius",:method=>:delete, data: {confirm: 'Are you sure?'} %></a>
+
+				<% end %>
+			</div>
+
+    	</div>
 
 
-			<% end %>
-		</div>
-
-    </div>
+   		<div class="large-6 columns">
 
 
-   <div class="small-6 columns">
-
-
-		<div class="small-12 columns">
-			<%= image_tag @event.image.url(:medium), class: 'event_image' %>
-		</div> 
-		<hr>
-		
-			<%if @token %>
+			<div class="th">
+				<%= image_tag @event.image.url(:medium), class: 'event_image' %>
+			</div> 
+			<hr>
+	         <%if @token %>
 				<%= render "shared/edit_participant_response" %>
 			<% end %>
-	
 
-		<div id="response" class="large-12 columns">
+			<div id="response">
 			<h6>Your Invitees</h6>
 			<div class = "section-container accordion" data-section="accordion">
-				<section class="section active">
+				<section class="section">
 					<p class="title">
 						<a href="#panel1">Going</a>
 					</p>
@@ -64,7 +66,7 @@
 					  </p>	
 					 </div>
 				</secion>
-				<section class="section active">
+				<section class="section">
 					<p class="title">
 						<a href="#panel1">Not Going</a>
 					</p>
@@ -78,9 +80,11 @@
 					  </p>	
 					 </div>
 				</secion>		
-				<section class="section active">
+				<section class="section">
 					<p class="title">
-						<a href="#panel1">Maybe</a>
+						<a href="#panel1">Maybe
+						(<%= @participants.count(response: "Maybe") %>)
+						</a>
 					</p>
 					<div class="content" data-slug="panel1">
 					  <p>
@@ -92,9 +96,11 @@
 					  </p>	
 					 </div>
 				</secion>
-				<section class="section active">
+				<section class="section">
 					<p class="title">
-						<a href="#panel1">Waiting to response</a>
+						<a href="#panel1">Waiting to response
+						(<%= @participants.count(response: nil) %>)
+						</a>
 					</p>
 					<div class="content" data-slug="panel1">
 					  <% @participants.each do |f| %>

@@ -28,7 +28,7 @@
    </td>
   </tr>
   <tr>
-   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 20px;text-align: center">
+   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;text-align: center">
    <table>
    <tr>
    <td style="letter-spacing:4px">
@@ -36,7 +36,7 @@
     </td>
     </tr> 
     <tr>
-    <td font-size: 14px> 
+    <td font-size: 10px> 
      <%= @participant.event.description %>
     <tr>
     <td>
@@ -44,7 +44,7 @@
    </td>
   </tr>
   <tr>
-   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 20px;text-align: center">
+   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;text-align: center">
        <table>
    <tr>
    <td style="letter-spacing:4px">
@@ -52,7 +52,7 @@
     </td>
     </tr> 
     <tr>
-    <td font-size: 14px> 
+    <td font-size: 10px> 
      <%= @participant.event.organizer.email %>
     <tr>
     <td>
@@ -60,7 +60,7 @@
    </td>
   </tr>
   <tr>
-   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 20px; text-align: center">
+   <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; text-align: center">
        <table>
 		   <tr>
 		   <td style="letter-spacing:4px" >
@@ -68,7 +68,7 @@
 		    </td>
 		    </tr> 
 		    <tr>
-		    <td font-size: 14px> 
+		    <td font-size: 10px> 
 		      <%= nice_date @participant.event.deadline %>
 		    <tr>
 		    <td>
@@ -79,7 +79,7 @@
         <table cellspacing="0" cellpadding="0"> <tr> 
            <td align="center" width="300" height="40" bgcolor="#04B431" >
 
-            <%= button_to "View Invitation", participant_token_url(@event, @participant.token), :method => "get", :style => "-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; bgcolor: #04B431; color: #ffffff; display: block; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block"%>
+            <%= button_to "View Invitation", participant_token_url(@event, @participant.token), :method => "get", :style => "-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; bgcolor: #04B431; color: #04B431; display: block; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block"%>
            </td> 
            </tr> 
         </table> 
