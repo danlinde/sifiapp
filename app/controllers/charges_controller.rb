@@ -12,19 +12,22 @@ class ChargesController < ApplicationController
 	  # Amount in cents
 	  @amount = (@event.amount * 100).to_i
 
-	  customer = Stripe::Customer.create(
-	    :email => @participant.email,
-	    :card  => params[:stripeToken]
-	  )
+	  unless Rails.environment.test?
+		  customer = Stripe::Customer.create(
+		    :email => @participant.email,
+		    :card  => params[:stripeToken]
+		  )
 
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => @amount,
-	    :description => 'Rails Stripe customer',
-	    :currency    => 'gbp'
-	  )
+		  charge = Stripe::Charge.create(
+		    :customer    => customer.id,
+		    :amount      => @amount,
+		    :description => 'Rails Stripe customer',
+		    :currency    => 'gbp'
+		  )
+	    end
 
 	  @participant.paid = true
+	  @participant.save
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
