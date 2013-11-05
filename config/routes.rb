@@ -15,6 +15,7 @@ Sifiapp::Application.routes.draw do
   
   resources :events do
     resources :participants
+    resources :charges
   end
 
   get '/events/:id/:token' => "events#show", as: "participant_token"
@@ -22,7 +23,6 @@ Sifiapp::Application.routes.draw do
   get '/authentications/get_email' => 'authentications#get_email'
   patch '/authentications/set_email' => 'authentications#set_email'
 
-  resources :charges
 
 
   # The priority is based upon order of creation: first created -> highest priority.

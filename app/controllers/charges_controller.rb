@@ -2,14 +2,18 @@ class ChargesController < ApplicationController
 	Stripe.api_key = 'sk_test_hGkKefy6ypvWw2YudQZq7fvv'
 
 	def new
+		@event = Event.find params[:event_id]
+		@participant = Participant.find_by_token session[:participant_token]
 	end
 
 	def create
+	  @event = Event.find params[:event_id]
+	  @participant = Participant.find_by_token session[:participant_token]
 	  # Amount in cents
-	  @amount = 500
+	  @amount = (@event.amount * 100).to_i
 
 	  customer = Stripe::Customer.create(
-	    :email => 'example@stripe.com',
+	    :email => @participant.email,
 	    :card  => params[:stripeToken]
 	  )
 
@@ -17,8 +21,10 @@ class ChargesController < ApplicationController
 	    :customer    => customer.id,
 	    :amount      => @amount,
 	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
+	    :currency    => 'gbp'
 	  )
+
+	  @participant.paid = true
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

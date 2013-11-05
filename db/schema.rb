@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131101142452) do
+ActiveRecord::Schema.define(version: 20131105135839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(version: 20131101142452) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "organizer_id"
-    t.boolean  "deadline_email_sent", default: false
+    t.boolean  "deadline_email_sent",                         default: false
     t.datetime "event_date"
+    t.decimal  "amount",              precision: 9, scale: 2
   end
 
   create_table "organizers", force: true do |t|
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 20131101142452) do
     t.integer  "event_id"
     t.string   "response"
     t.text     "token"
+    t.boolean  "paid",       default: false
   end
 
   add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
