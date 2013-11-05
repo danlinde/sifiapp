@@ -1,13 +1,9 @@
 <div class="pagewrap" >
 <div class="row">
-	<h3>Welcome, <%= @organizer.email %></h3>
-</div>
-
-<div class="row">
-	<div class="large-6 columns">
-		<h5>Your events:</h5>
+	<div class="large-6 columns eventtop">
+		<h3>Your Events</h3>
 	</div>
-	<div class="large-6 columns"><%= link_to "Create event", new_event_path, class: "button radius" %>
+	<div class="large-6 columns eventtop"><%= link_to "Create event", new_event_path, class: "button large radius" %>
 	</div>
 </div>
 
@@ -16,7 +12,7 @@
 		
 			<div id="event_listing" class="large-3 columns">
 				<div class="hovering">					
-					<h4><%= link_to "#{event.name}", event_path(event) %></h4>
+					<h5><%= link_to "#{event.name}", event_path(event) %></h5>
 					<%= link_to event_path(event) do %>
 						<%= image_tag event.image.url(:thumb), class: 'event_image' %>
 					<% end %>
