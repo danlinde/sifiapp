@@ -55,6 +55,6 @@ end
 
 def create_dinner
   Event.any_instance.stub(:send_confirmation_email)
-  @dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", organizer: Organizer.new(:email=>"a@example.com"), deadline: "2014-11-08 13:00", 
+  @dinner = Event.create({name: "Dinner on Friday", description: "We are going to subway", organizer: Organizer.new(:email=>"a@example.com"), deadline: "2014-11-08 13:00", event_date: "2014-11-09 13:00", 
       participant_emails: "ting@ting.com"})
 end

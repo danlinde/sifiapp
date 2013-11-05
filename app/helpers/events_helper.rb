@@ -7,4 +7,8 @@ module EventsHelper
 	def iso8601_date(date)
 		date.iso8601 if date
 	end
+
+	def nice_price(amount)
+		sprintf "£%.2f", amount
+	end
 end

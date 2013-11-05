@@ -5,6 +5,7 @@ FactoryGirl.define do
     name "MyString"
     description "MyText"
     deadline "2014-10-28 11:35:44"
+    amount 10.05
     organizer
 
     after(:create) do |event|

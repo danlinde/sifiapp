@@ -20,6 +20,11 @@
 	<div class="small-6 columns">
 		<%= image_tag @event.image.url(:medium), class: 'event_image' %>
 	</div> 
+
+	<div class="small-6 columns">
+		<p>Amount:
+		<span><%= nice_price @event.amount %></span></p>
+	</div> 
 	
 
 	<div class="large-12 columns">
@@ -36,7 +41,7 @@
 			
 				<% if f.response == "Yes" %>
 				
-				<li class="li_email"><%= f.email %></li>
+				<li class="li_email"><%= f.paid if f.paid %><%= f.email %></li>
 
 				<% end %>
 			<% end %>
@@ -48,18 +53,6 @@
 			<% @participants.each do |f| %>
 			
 				<% if f.response == "No" %>
-				
-				<li class="li_email"><%= f.email %></li>
-
-				<% end %>
-			<% end %>
-		</ul>
-
-		<ul class="no-bullet">
-			<span class="Invite_Status">Maybe</span>
-			<% @participants.each do |f| %>
-			
-				<% if f.response == "Maybe" %>
 				
 				<li class="li_email"><%= f.email %></li>
 
