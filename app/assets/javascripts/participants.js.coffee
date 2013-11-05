@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-dispatcher = new WebSocketRails 'localhost:3000/websocket'
+dispatcher = new WebSocketRails window.location.host + '/websocket'
 channel = dispatcher.subscribe 'responses'
 channel.bind 'new', (participant) ->
 	# next line can be used to update response if using text
