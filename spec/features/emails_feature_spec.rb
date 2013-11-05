@@ -13,7 +13,7 @@ describe 'an event confirmation email' do
   	}
 
 	  it 'should have subject "Event Confirmation"'  do
-	  	expect(emails.first.subject).to eq "Event Confirmation"
+	  	expect(emails.first.subject).to eq "An Invitation"
 	  end
 
 	  it 'should include the link of the event page' do
