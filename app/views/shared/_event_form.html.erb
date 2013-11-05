@@ -1,45 +1,65 @@
 
-
 <%= form_for @event, html: {multipart: true } do |e| %>
-<div class="large-8 columns">
 	<fieldset>
-		<div class="row">
-			<div class="large-4 columns">
-				<%= e.label :name %>
-				<%= e.text_field :name, :required => true%>
-			</div>
+		<div class="row animated slideInLeft">
+			<div class="large-12 columns">
+				<div class="setit">
+				
+				<span><%= image_tag('rocket.png')%>Set It</span>
 
-		    <div class="large-4 columns">
-				<%= e.label :deadline %>
-				<%= e.text_field :deadline, class: "datetimepicker", :required => true %>
+				</div>
 			</div>
-
-			<div class="large-4 columns">
-				<%= e.label :event_date %>
-				<%= e.text_field :event_date, class: "datetimepicker", :required => true %>
-			</div>
-			
 		</div>
 
-			
 		<div class="row">
-			<div class="large-6 columns">
-				<%= e.label :link %>
-				<%= e.text_field :link  %>
-			</div>
-
-			 <div class-"large-6 columns">
+			<div class="large-4 columns">
+				<div>
+					<%= e.label :Your_event_name %>
+					<%= e.text_field :name, :required => true, :placeholder => "E.g. Party at my house" %>
+				</div>
+				<div>
 				<%= e.label :image %>
 				<%= e.file_field :image, class: "button secondary" %>
 				<%= e.hidden_field :organizer_id, value: current_organizer.id %>
+				</div>
 			</div>
 
+		    <div class="large-8 columns">
+
+		    	<div>
+		    	<%= e.label :add_event_link %>
+				<%= e.text_field :link, :placeholder => "http://"  %>
+				</div>
+				<div>
+				<%= e.label :description %>
+				<%= e.text_area :description, :placeholder => "My event will be.. "%>
+				</div>
+				
+			</div>
+
+		<!-- 	<div class="large-4 columns">
+				
+			</div>
+			 -->
 		</div>
 
+		<hr>			
 		<div class="row">
-			<div class="large-12 columns">
-				<%= e.label :description %>
-				<%= e.text_area :description%>
+
+			 <div class="large-4 columns">
+				<%= e.label :Who_do_you_want_to_invite? %>
+				<%= e.text_field :participant_emails, id: "email_input", placeholder: "Bob@gmail.com .." %>
+			</div>
+			<div class="large-4 columns">
+				<%= e.label :Deadline_Date %>
+				<%= e.text_field :deadline, class: "datetimepicker", :required => true, :placeholder => "I must get responses by.." %>
+
+				<%= e.label :Event_Date %>
+				<%= e.text_field :event_date, class: "datetimepicker", :required => true, :placeholder => "My event will be on .." %>
+			</div>
+
+			 <div class-"large-4 columns">
+				amount due field
 			</div>
 
 		</div>
@@ -64,16 +84,10 @@
 			</div>
 		<% end %>
 
-		<div class="row">
-		    <div class="large-12 columns">
-			<%= e.label :participant_emails %>
-			<%= e.text_field :participant_emails, id: "email_input", placeholder: "Enter your email" %>
-			</div>
-		</div>
 
 		<div class="row">
-			<div class="large-12 columns">
-				<%= e.submit id:'event_form_submit', class: "button" %>
+			<div class="large-4 large-offset-8 columns">
+				<%= e.submit 'Forget It', id:'event_form_submit', class: "button radius" %>
 			</div>
 		</div>
 		
@@ -82,4 +96,3 @@
 </div>	
 
 <% end %>
-
