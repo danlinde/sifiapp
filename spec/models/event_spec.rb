@@ -19,9 +19,8 @@ describe Event do
 	end
 
 	it 'cannot have its event date sets before its deadline' do
-
 		expect(build(:event, event_date: "2014-10-28 11:00:00", 
-			deadline: "2014-10-29 11:00:00")).not_to be_valid
+		deadline: "2014-10-29 11:00:00")).not_to be_valid
 	end
 
 end
