@@ -1,6 +1,7 @@
 class ParticipantNotifier < ActionMailer::Base
   default from: "no-reply@sifiapp.com"
 
+helper :events
 
 def confirmation_email(event, participant)
   	@event = event
