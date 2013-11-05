@@ -12,7 +12,7 @@ class ChargesController < ApplicationController
 	  # Amount in cents
 	  @amount = (@event.amount * 100).to_i
 
-	  unless Rails.environment.test?
+	  unless Rails.env.test?
 		  customer = Stripe::Customer.create(
 		    :email => @participant.email,
 		    :card  => params[:stripeToken]
