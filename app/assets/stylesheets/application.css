@@ -19,6 +19,14 @@
  *= jquery-ui-timepicker-addon.css
  */
 
+.pagewrap {
+  background-image: url('shattered.png');
+  background-repeat:repeat; 
+}
+
+.pagewrap .row {
+  min-width: 80%;
+}
 .top-bar-section ul li a:not(.button):hover {     /* Topbar menu items. */
     background-color: #FFA273;
     
@@ -40,14 +48,14 @@
 }
 
 .homefirst {
-  background-color: #FFA273;;
+  background-color: #FFA273;
 }
 .homefirst h3 {
 color: #A63800;
 }
 
 .homesecond {
-  background-image:url(pattern.jpg); background-repeat:repeat”
+  background-image:url(pattern.jpg); background-repeat:repeat;
 }
 
 .homesecond img {
@@ -201,3 +209,4 @@ color: #666;
 #threesteps {
   padding-top: 20px;
 }
+

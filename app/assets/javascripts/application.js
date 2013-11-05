@@ -19,7 +19,6 @@
 //= require foundation
 //= require jquery.flatshadow
 //= require websocket_rails/main
-//= require turbolinks
 //= require jquery-ui-timepicker-addon
 //= require_tree .
 
