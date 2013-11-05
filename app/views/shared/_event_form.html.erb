@@ -58,17 +58,11 @@
 				<%= e.text_field :event_date, class: "datetimepicker", :required => true, :placeholder => "My event will be on .." %>
 			</div>
 
-			 <div class-"large-4 columns">
-				amount due field
+			 <div class="large-4 columns">
+				<%= e.label :How_much_per_person? %>
+				<%= e.text_field :amount, :placeholder => "Per person in £"%>
 			</div>
 
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns">
-				<%= e.label :amount %>
-				<%= e.text_field :amount%>
-			</div>
 		</div>
 
 		<% if @edit %>
