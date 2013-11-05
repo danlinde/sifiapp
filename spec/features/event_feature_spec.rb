@@ -22,6 +22,7 @@ describe 'event' do
 			fill_in 'event[event_date]', with: "2013-12-06 00:00:00"
 			fill_in 'event[participant_emails]', with: "ting@tong.com, dave@dave.com"
 			fill_in 'event[link]', with: "http://google.com"
+			fill_in 'event[amount]', with: 40
             click_button 'Forget It'
 
             event = Event.last

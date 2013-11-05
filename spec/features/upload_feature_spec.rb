@@ -17,5 +17,6 @@ describe 'when I create an event' do
 	click_button "Forget It"
 
 	expect(page).to have_css 'img.event_image'
+	expect(page).to have_content 'Your Events'
   end
 end
