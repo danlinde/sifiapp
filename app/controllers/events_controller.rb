@@ -3,7 +3,6 @@ class EventsController < ApplicationController
 	
 	def new
 		@event = Event.new
-		1.times {@event.participants.build}
 	end 
 
 	def create

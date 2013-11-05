@@ -9,7 +9,7 @@
 	<div class="small-6 columns">
 		<p>Deadline:
 		<span><%= nice_date @event.deadline %></span></p>
-		<div id="timer" data-ends-at="<%= @event.deadline %>"></div>
+		<div id="timer" data-ends-at="<%= iso8601_date @event.deadline %>"></div>
 		<p>Event Date:
 		<span><%= nice_date @event.event_date %></span></p>
 
