@@ -20,9 +20,9 @@
  */
 
 .pagewrap {
-  /*background-image: url('noise-texture.png');
-  background-repeat:repeat; */
-  background-color: #FFA273;
+  background-image: url('pattern.jpg');
+  background-repeat:repeat; 
+  /*background-color: #FFA273;*/
 }
 
 

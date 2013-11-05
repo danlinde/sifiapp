@@ -9,7 +9,7 @@ $(".time-select").windowed({
 $(document).ready(function(){
 	$("#email_input").inputosaurus({
 		inputDelimiters : [",",";"," "],
-		width: "30%",
+		width: "300px",
 		parseOnBlur: true
 	});
 });
