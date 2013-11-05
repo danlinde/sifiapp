@@ -148,14 +148,17 @@
 }
 
 #event_listing {
-  margin: 15px;
-  padding-left: 1.5em;
-  padding-rigt: 1.5em;
   padding-bottom: 10px;
+  padding-left: 1em !important;
+  padding-right: 1em !important;
+}
+
+#event_pad {
+  margin: 10px;
   background-color: white;
 }
 
-#event_listing, fieldset {
+fieldset {
   -webkit-box-shadow:
             0px 0px 0px 2px rgba(0,0,0,0.6),
                 0px 0px 0px 9px #fff,
@@ -176,8 +179,7 @@
 }
 
 .hovering img {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.4);
 }
@@ -186,6 +188,7 @@
 
 .hovering a {
   color: #A63800;
+  font-family: cursive;
 }
 
 .togglebox {
@@ -196,11 +199,21 @@
 }
 
 .togglebox .content {
-  padding: 20px;
+  padding: 0px 5px;
 }
 
 .eventtop {
-  margin-top: 20px;
+  margin-top: 35px;
+  padding-left: 1.7em !important;
+  padding-right: 2em !important;
+}
+
+.eventtop .button {
+  float: right;
+}
+
+.eventtop h3 {
+  padding-top: 20px;
 }
 
 .event_image {
@@ -220,4 +233,9 @@ fieldset {
 
 #event_form_submit {
   padding: 15px 40px 15px 40px;
+}
+
+#respond {
+  font-size: 1.0em;
+  font-weight: bold;
 }
