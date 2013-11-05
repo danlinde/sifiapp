@@ -79,7 +79,7 @@
         <table cellspacing="0" cellpadding="0"> <tr> 
            <td align="center" width="300" height="40" bgcolor="#04B431" >
 
-            <%= button_to "View Invitation", participant_token_url(@event, @participant.token), :method => "get", :style => "-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; bgcolor: #04B431; color: #04B431; display: block; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block"%>
+            <%= button_to "View Invitation", participant_token_url(@event, @participant.token), :method => "get", :style => "-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; background-color: #04B431; color: #ffffff; display: block; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block"%>
            </td> 
            </tr> 
         </table> 
@@ -96,7 +96,7 @@
          <tr>
            <td>
              <a href="http://www.setitforget.it">
-              <img src="./app/assets/images/SetForget.png" alt="logo" style="display: block;" border="0" />
+             	<%= image_tag("SetForget.png", style: "display: block;", border: "0", alt: "logo") %>
              </a>
              </td>
          </tr>
@@ -110,20 +110,15 @@
   </tr>
  </table>
   
-    <td align="right">
+   <td align="right">
  <table border="0" cellpadding="0" cellspacing="0">
   <tr>
    <td>
     <a href="http://www.twitter.com/">
-     <img src="./app/assets/images/twitter.png" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
+    	<%= image_tag("twitter.png", style: "display: block;", border: "0", alt: "Twitter", width: "38", height: "38" ) %>
     </a>
    </td>
    <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
-   <td>
-    <a href="http://www.facebook.com/">
-     <img src="./app/assets/images/socialimages.png" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
-    </a>
-   </td>
   </tr>
  </table>
  </td>

@@ -22,6 +22,13 @@ class EventsController < ApplicationController
 		@participant = Participant.find_by_token(params[:token])
 
 		@participants = @event.participants
+
+		if @participant
+			session[:participant_token] = params[:token]
+		else
+			flash[:notice] = 'Invalid token'
+			redirect_to '/'
+		end
 	end
 
 	def edit
@@ -46,7 +53,7 @@ class EventsController < ApplicationController
 	private
 
   	def event_params
-    params.require(:event).permit(:name, :description, :deadline, :event_date, :image, :organizer_id, :link,
+    params.require(:event).permit(:name, :description, :deadline, :event_date, :amount, :image, :organizer_id, :link,
           	:participant_emails)
   	end
 

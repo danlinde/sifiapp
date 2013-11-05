@@ -11,9 +11,8 @@
 
 		<div class="large-6 columns">
            <div class = "panel">
-			<p><h5>Your RSVP is due by:</h5>
-				<h6><%= nice_date @event.deadline %></h6></p>
-				<h5><%= Count Down to Deadline</h5>
+			<p><h5>Your RSVP is due :</h5>
+				<h5><%= nice_date @event.deadline %></h5></p>
 			<div id="timer" data-ends-at="<%= iso8601_date @event.deadline %>"></div>
 		   </div> 
 		    <hr>
@@ -23,6 +22,8 @@
 				<span><%= nice_date @event.event_date %></span></p>
 				<p><%= @event.description %></p>
 				<p>Link: <%= link_to @event.link %></p>
+				<p><h6>Amount:</h6>
+                 <span><%= nice_price @event.amount %></span></p> 
 		    </div>
 
 		   
@@ -54,13 +55,17 @@
 			<div class = "section-container accordion" data-section="accordion">
 				<section class="section">
 					<p class="title">
-						<a href="#panel1">Going</a>
+						<a href="#panel1">Going
+						(<%= @participants.where(response: "Yes").count %>)
+						</a>
 					</p>
 					<div class="content" data-slug="panel1">
 					  <p>
 					  	<% @participants.each do |f| %>
 				           <% if f.response == "Yes" %>
-					       <li class="li_email"><%= f.email %></li>
+
+				           <li class="li_email"><span class="payment_status"><%= image_tag("Tick.png") if f.paid == false %></span>  <%= f.email %></li>
+				       
 					    <% end %>
 				        <% end %>
 					  </p>	
@@ -68,7 +73,9 @@
 				</secion>
 				<section class="section">
 					<p class="title">
-						<a href="#panel1">Not Going</a>
+						<a href="#panel1">Not Going
+						(<%= @participants.where(response: "No").count %>)
+						</a>
 					</p>
 					<div class="content" data-slug="panel1">
 					  <p>
@@ -83,7 +90,7 @@
 				<section class="section">
 					<p class="title">
 						<a href="#panel1">Maybe
-						(<%= @participants.count(response: "Maybe") %>)
+						(<%= @participants.where(response: "Maybe").count %>)
 						</a>
 					</p>
 					<div class="content" data-slug="panel1">
@@ -99,7 +106,7 @@
 				<section class="section">
 					<p class="title">
 						<a href="#panel1">Waiting to response
-						(<%= @participants.count(response: nil) %>)
+						(<%= @participants.where(response: nil).count %>)
 						</a>
 					</p>
 					<div class="content" data-slug="panel1">
