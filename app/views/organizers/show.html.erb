@@ -1,7 +1,9 @@
 <div class="pagewrap" >
 <div class="row">
-	<div class="large-6 columns eventtop">
+	<div class="large-4 columns eventtop">
 		<h3>Your Events</h3>
+	</div>
+	<div class="large-2 columns">
 	</div>
 	<div class="large-6 columns eventtop"><%= link_to "Create event", new_event_path, class: "button large radius" %>
 	</div>
@@ -10,27 +12,26 @@
 	<div class="row">
 	<% @organizer.events.each do |event| %>
 		
-			<div id="event_listing" class="large-3 columns">
-				<div class="hovering">					
-					<h5><%= link_to "#{event.name}", event_path(event) %></h5>
-					<%= link_to event_path(event) do %>
-						<%= image_tag event.image.url(:thumb), class: 'event_image' %>
-					<% end %>
-				</div>
+			<div id="event_listing" class="large-4 columns">
+				<div id="event_pad" > 
+					<div class="hovering">					
+						<h5><%= link_to "#{event.name}", event_path(event) %></h5>
+						<%= link_to event_path(event) do %>
+							<%= image_tag event.image.url(:thumb), class: 'event_image' %>
+						<% end %>
+					</div>
 
-	      		<div class="togglebox">
-					<div class="content">
-					<ul class="no-bullet">
-						<li><%= event.description %></li>
-					
-						<li>Response deadline: <%= nice_date event.deadline %></li>
-
-						<li>Event date: <%= nice_date event.event_date %></li>
-				        
-				<!--Content Here-->
+		      		<div class="togglebox">
+						<div class="content">
+						<ul class="no-bullet">
+							<li id="respond">Respond by:</li>
+							<li><%= nice_date event.deadline %></li>
+							
+					        
+					<!--Content Here-->
+						</div>
 					</div>
 				</div>
-
 			</div>
 	<% end %>
 	</div>
