@@ -1,38 +1,32 @@
-<div class="row panel">
-		<h3 class="subheader"><%= @event.name %></h3>
+<div class="pagewrap" >
+<div class="row">
+		
 	
 	<fieldset>
+	<div class="large-12 columns">
+		<h3 ><%= @event.name %></h3>
+	</div>
 	<div class="small-6 columns">
 		<p>Deadline:
 		<span><%= nice_date @event.deadline %></span></p>
 		<div id="timer" data-ends-at="<%= @event.deadline %>"></div>
 		<p>Event Date:
 		<span><%= nice_date @event.event_date %></span></p>
+
+		<p class="panel"><%= @event.description %></p>
+
+		<p>Link: <%= link_to @event.link %></p>
 	</div>
 	<div class="small-6 columns">
 		<%= image_tag @event.image.url(:medium), class: 'event_image' %>
 	</div> 
 	
 
-	  <div class="large-8 columns">
-			<p><%= @event.description %></p>
-
-			<p>Link: <%= link_to @event.link %></p>
-		</div>
-
-		<div class="large-4 columns">
-
-		
-		<h6></h6>
-
-		<div id="timer" data-ends-at="<%= @event.deadline %>"></div>
-	  </div>
-
-
+	<div class="large-12 columns">
 		<%if @token %>
 			<%= render "shared/edit_participant_response" %>
 		<% end %>
-	
+	</div>
 
 	<div id="response" class="large-6 columns">
 		<h5>Your Invitees</h5>
@@ -95,4 +89,5 @@
 	</div>
 	</fieldset>
 
+</div>
 </div>
