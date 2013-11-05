@@ -16,13 +16,13 @@ describe 'event' do
 		it 'an organiser can create a new event' do
 			visit new_event_path
 
-			fill_in 'Name', with: 'Team Lunch Wednesday'
+			fill_in 'event[name]', with: 'Team Lunch Wednesday'
 			fill_in 'Description', with: "We are having our lunch delivered this Wednesday"
-			fill_in 'Deadline', with: "2013-12-05 00:00:00"
-			fill_in 'Event date', with: "2013-12-06 00:00:00"
+			fill_in 'event[deadline]', with: "2013-12-05 00:00:00"
+			fill_in 'event[event_date]', with: "2013-12-06 00:00:00"
 			fill_in 'event[participant_emails]', with: "ting@tong.com, dave@dave.com"
-			fill_in 'Link', with: "http://google.com"
-            click_button 'Create Event'
+			fill_in 'event[link]', with: "http://google.com"
+            click_button 'Forget It'
 
             event = Event.last
             # raise page.html
@@ -98,7 +98,7 @@ describe 'event' do
 		it 'an organiser can edit an event' do
 			visit event_path(@event)
 			click_link "Edit event"
-			fill_in "Name", with: "Renamed event"
+			fill_in "event[name]", with: "Renamed event"
 			click_button "event_form_submit"
 			# raise Event.find(@event.id).inspect
 			expect(current_url).to eq url_for(@event)

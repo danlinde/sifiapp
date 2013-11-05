@@ -20,9 +20,9 @@
  */
 
 .pagewrap {
-  /*background-image: url('noise-texture.png');
-  background-repeat:repeat; */
-  background-color: #FFA273;
+  background-image: url('pattern.jpg');
+  background-repeat:repeat; 
+  /*background-color: #FFA273;*/
 }
 
 
@@ -209,3 +209,7 @@ color: #666;
   padding-top: 20px;
 }
 
+#loggedin {
+  text-decoration: none;
+  font-size: 0.8em;
+}
