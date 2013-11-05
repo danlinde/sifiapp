@@ -26,7 +26,7 @@ class ChargesController < ApplicationController
 		    :customer    => customer.id,
 		    :amount      => @amount,
 		    :description => 'Rails Stripe customer',
-		    :currency    => 'gbp'
+		    :currency    => 'gbp',
 		    :application_fee    => 100#cents
 		  )
 		  current_organizer.authentications.find_by_provider('stripe_connect').token

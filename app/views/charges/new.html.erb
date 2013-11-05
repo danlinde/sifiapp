@@ -3,25 +3,18 @@
 <%= form_tag event_charges_path(@event) do %>
   <article>
     <label class="amount">
-<<<<<<< HEAD
-      <span><%= @amount %></span>
-=======
+
       <span>Amount: <%= nice_price @event.amount %> </span>
->>>>>>> 5e01a6d0fb227cc0d54310f5f87654423dae2c34
+
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-<<<<<<< HEAD
+
           data-key="<%= current_organizer.authentications.find_by_provider('stripe_connect').stripe_publishable_key %>"
-          data-description="A month's subscription"
-          data-amount="500"></script>
-=======
-          data-key="pk_test_RM4OsOgjZV7pdZqCsTgqPJMB"
           data-description="Your amount"
           data-amount="<%= @event.amount * 100 %>"
           data-currency="gbp"></script>
->>>>>>> 5e01a6d0fb227cc0d54310f5f87654423dae2c34
 <% end %>
 
 
