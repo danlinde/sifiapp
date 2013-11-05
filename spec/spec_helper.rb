@@ -41,7 +41,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.formatter= :documentation
-
+  config.include Devise::TestHelpers, :type => :controller
   # Use shorthand for FactoryGirl
   config.include FactoryGirl::Syntax::Methods
   config.include Warden::Test::Helpers
