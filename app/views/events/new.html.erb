@@ -1,5 +1,6 @@
-<div class="row panel">
-		<h2 class="subheader"> Create your event: </h2>
+<div class="pagewrap">
+<div class="row">
+		<h2> Create your event: </h2>
 		<ul>
 	  		<%  @event.errors.full_messages.each do |msg| %>
 	    		<li><%= msg %></li>
@@ -8,4 +9,5 @@
 
 		<%= render "shared/event_form" %>
 	
+</div>
 </div>

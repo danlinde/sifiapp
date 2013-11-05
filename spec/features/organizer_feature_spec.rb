@@ -83,7 +83,7 @@ describe 'Organizer' do
     end
     
     it 'should show the organizer email' do
-      expect(page).to have_css('h3', text: 'Welcome, a@a.com')
+      expect(page).to have_css('h3', text: 'Your Events')
     end
 
     it 'should show organizer events' do
