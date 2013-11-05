@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
 	has_many :participants
 
 	has_attached_file :image, styles: {:medium => "450x450>", thumb: '250x250>'},
-  :default_url => "/images/missing.png"
+  :default_url => "missing.jpeg"
 
 
 	belongs_to :organizer
