@@ -5,26 +5,36 @@ class ChargesController < ApplicationController
 	# token = params[:stripeToken]
 
 	def new
-		@amount = 2000
+		@event = Event.find params[:event_id]
+		@participant = Participant.find_by_token session[:participant_token]
 	end
 
 	def create
+	  @event = Event.find params[:event_id]
+	  @participant = Participant.find_by_token session[:participant_token]
 	  # Amount in cents
-	  @amount = 2000 # need to link to organizer input amount per participant
+	    
+	  @amount = (@event.amount * 100).to_i
 
-	  charge = Stripe::Charge.create({
-	  	:amount => @amount, # amount in cents, again
-    	:currency => "gbp",
-    	:card =>  params[:stripeToken],
-    	:description => "SetForget",
-	    :application_fee    => 100#cents
-	    # :customer    => customer.id,
-	    # :amount      => @amount,
-	    # :description => 'Rails Stripe customer',
-	    # :currency    => 'usd'
-		},
-	    current_organizer.authentications.find_by_provider('stripe_connect').token
-	  )
+	  unless Rails.environment.test?
+		  customer = Stripe::Customer.create(
+		    :email => @participant.email,
+		    :card  => params[:stripeToken]
+		  )
+
+		  charge = Stripe::Charge.create(
+		    :customer    => customer.id,
+		    :amount      => @amount,
+		    :description => 'Rails Stripe customer',
+		    :currency    => 'gbp'
+		    :application_fee    => 100#cents
+		  )
+		  current_organizer.authentications.find_by_provider('stripe_connect').token
+	    end
+
+	  @participant.paid = true
+	  @participant.save
+
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

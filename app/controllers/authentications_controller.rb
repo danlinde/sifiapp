@@ -28,6 +28,7 @@ class AuthenticationsController < ApplicationController
 		elsif current_organizer
 			# current_organizer.authentications.create!(yield)
 			yield
+													# this is an example if we were to pull from 'raw info' instead
 													# :stripe_publishable_key => omni["extra"]["raw_info"]["stripe_publishable_key"])
 			flash[:notice] = 'Authentication successful.'
 			sign_in_and_redirect current_organizer
