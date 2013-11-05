@@ -44,8 +44,9 @@
 .countdown_section {
 	display: block;
 	float: left;
-	font-size: 75%;
+	font-size: 85%;
 	text-align: center;
+	padding: 10px;
 }
 .countdown_amount {
 	font-size: 200%;

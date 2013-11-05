@@ -140,7 +140,7 @@ causing errors*/
   text-decoration: none;
   color: #000;
   display: block;
-  width: 200px;
+  width: 100%;
 
   -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
   -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
