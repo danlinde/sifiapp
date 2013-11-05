@@ -1,8 +1,13 @@
-<div class="row panel">
-		<h3 class="subheader"><%= @event.name %></h3>
+<div class="pagewrap" >
+<div class="row">
+		
 	
 	<fieldset>
+	<div class="large-12 columns">
+		<h3 ><%= @event.name %></h3>
+	</div>
 	<div class="small-6 columns">
+
 		<div class="large-12 columns">
            <div class = "panel">
 			<p><h5 textlign = "centre">Your RSVP is due in:<%= nice_date @event.deadline %></h5></p>
@@ -21,6 +26,8 @@
 			<% if current_organizer == @event.organizer %>
 				<p><%= link_to "Edit event", edit_event_path(@event),class: "button radius" %></p>
 				<p><%= button_to "Delete Event", @event, class: "button radius",:method=>:delete, data: {confirm: 'Are you sure?'} %></p>
+
+
 			<% end %>
 		</div>
 
@@ -106,4 +113,5 @@
 	  </div>               
 	</fieldset>
 
+</div>
 </div>
