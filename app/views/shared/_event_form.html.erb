@@ -13,6 +13,18 @@
 
 		<div class="row">
 			<div class="large-4 columns">
+				<%= button_tag "Are you collecting payment?", "data-reveal-id" => "stripe_connect", class: "button alert round disabled"%>
+
+
+				<div id="stripe_connect" class="reveal-modal">
+				  <h2>Cool! Tell us how we can pay you.</h2>
+				  <p class="lead">Press the button below to Stripe Connect.</p>
+				  <p>
+				  	<%= link_to image_tag("light.png"), organizer_omniauth_authorize_path(:stripe_connect), id: "stripe_connect"  %>
+				  </p>
+				  <a class="close-reveal-modal">&#215;</a>
+				</div>
+
 				<div>
 					<%= e.label :Your_event_name %>
 					<%= e.text_field :name, :required => true, :placeholder => "E.g. Party at my house" %>
