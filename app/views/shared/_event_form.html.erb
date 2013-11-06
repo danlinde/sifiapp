@@ -12,8 +12,8 @@
 		</div>
 
 		<div class="row">
-			<div class="large-4 columns">
-				<%= button_tag "Are you collecting payment?", "data-reveal-id" => "stripe_connect", class: "button alert round disabled"%>
+			<div class="large-8 columns">
+				<%= button_tag "1. Are you collecting payment?", "data-reveal-id" => "stripe_connect", class: "button alert round disabled"%>
 
 
 				<div id="stripe_connect" class="reveal-modal">
@@ -24,59 +24,59 @@
 				  </p>
 				  <a class="close-reveal-modal">&#215;</a>
 				</div>
+			<hr>
 
-				<div>
-					<%= e.label :Your_event_name %>
-					<%= e.text_field :name, :required => true, :placeholder => "E.g. Party at my house" %>
-				</div>
-				<div>
-				<%= e.label :image %>
-				<%= e.file_field :image, class: "button secondary" %>
-				<%= e.hidden_field :organizer_id, value: current_organizer.id %>
-				</div>
-			</div>
+				<div class="section-container accordion" data-section="accordion">
+              <section class="section active">
+                <p class="title"><a href="#panel1">2. Event details</a></p>
+                <div class="content" data-slug="panel1">
+                  		<%= e.label :Your_event_name %>
+						<%= e.text_field :name, :required => true, :placeholder => "E.g. Party at my house" %>
+						<%= e.label :add_event_link %>
+						<%= e.text_field :link, :placeholder => "http://" %>
+						<%= e.label :description %>
+						<%= e.text_area :description, :placeholder => "My event will be.. "%>
+						<div>
+							<%= e.label :image %>
+							<%= e.file_field :image, class: "button secondary" %>
+							<%= e.hidden_field :organizer_id, value: current_organizer.id %>
+						</div>
+                </div>
+              </section>
+              <section class="section">
+                <p class="title"><a href="#panel2">3. Invite list</a></p>
+                <div class="content" data-slug="panel2">
+                  	<%= e.label "Who_do_you_want_to_invite? (email address)" %>
+					<%= e.text_field :participant_emails, id: "email_input", placeholder: "Bob@gmail.com .." %>
+                </div>
+              </section>
+              <section class="section">
+                <p class="title"><a href="#panel3">4. Date and time</a></p>
+                <div class="content" data-slug="panel3">
+                  	<%= e.label :Deadline_Date %>
+					<%= e.text_field :deadline, class: "datetimepicker", :required => true, :placeholder => "I must get responses by.." %>
+					<%= e.label :Event_Date %>
+					<%= e.text_field :event_date, class: "datetimepicker", :required => true, :placeholder => "My event will be on .." %>
+                </div>
+              </section>
+			
+			<% if current_organizer.stripe_connected? %>
 
-		    <div class="large-8 columns">
-
-		    	<div>
-		    	<%= e.label :add_event_link %>
-				<%= e.text_field :link, :placeholder => "http://"  %>
-				</div>
-				<div>
-				<%= e.label :description %>
-				<%= e.text_area :description, :placeholder => "My event will be.. "%>
-				</div>
-				
-			</div>
-
-		<!-- 	<div class="large-4 columns">
-				
-			</div>
-			 -->
+              <section class="section">
+                <p class="title"><a href="#panel3">5. Participant payment due</a>
+                </p>
+                <div class="content" data-slug="panel3">
+                  	<%= e.label "How much per person? (£)"%>
+					<%= e.text_field :amount, :placeholder => "Per person in £ e.g 38.00"%>
+                </div>
+              </section>
+			<% end %>
 		</div>
 
-		<hr>			
-		<div class="row">
-
-			 <div class="large-4 columns">
-				<%= e.label "Who_do_you_want_to_invite? (email address)" %>
-				<%= e.text_field :participant_emails, id: "email_input", placeholder: "Bob@gmail.com .." %>
-			</div>
-			<div class="large-4 columns">
-				<%= e.label :Deadline_Date %>
-				<%= e.text_field :deadline, class: "datetimepicker", :required => true, :placeholder => "I must get responses by.." %>
-
-				<%= e.label :Event_Date %>
-				<%= e.text_field :event_date, class: "datetimepicker", :required => true, :placeholder => "My event will be on .." %>
-			</div>
-
-			 <div class="large-4 columns">
-				<%= e.label "How much per person? (£)"%>
-				<%= e.text_field :amount, :placeholder => "Per person in £ e.g 38.00"%>
-			</div>
-
+		<div class="large-8 columns">
+			<%= e.submit 'Forget It', id:'event_form_submit', class: "button radius" %>
 		</div>
-
+		
 		<% if @edit %>
 			<div class="row">
 				<div class="large-12 columns">
@@ -89,13 +89,6 @@
 				</div>
 			</div>
 		<% end %>
-
-
-		<div class="row">
-			<div class="large-4 large-offset-8 columns">
-				<%= e.submit 'Forget It', id:'event_form_submit', class: "button radius" %>
-			</div>
-		</div>
 		
 	</fieldset>
 
