@@ -36,4 +36,8 @@ class Organizer < ActiveRecord::Base
     authentications.where(provider: 'stripe_connect').any?
   end
 
+  def total_revenue
+    events.inject(0.0) { |total, event| total + event.revenue }
+    # events.map(&:revenue).inject(:+)
+  end
 end
