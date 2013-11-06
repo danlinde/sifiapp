@@ -24,7 +24,8 @@ class AuthenticationsController < ApplicationController
 
 		if authentication
 			flash[:notice] = "Logged in Successfully"
-			sign_in_and_redirect Organizer.find(authentication.organizer_id)
+			sign_in Organizer.find(authentication.organizer_id)
+			redirect_to new_event_path
 		elsif current_organizer
 			# current_organizer.authentications.create!(yield)
 			yield(omni)
