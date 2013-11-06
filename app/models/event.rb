@@ -69,5 +69,10 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def revenue
+    amount ? amount * participants.where(paid: true).count : 0.0
+  end
+
+
 end
 
