@@ -21,7 +21,7 @@
 	        	<p><h6>Event Date:</h6>
 				<span><%= nice_date @event.event_date %></span></p>
 				<p><%= @event.description %></p>
-				<p>Link: <%= link_to @event.link %></p>
+				<p>Link: <%= link_to @event.link, format_link(@event.link) %></p>
 				<p><h6>Amount:</h6>
                  <span><%= nice_price @event.amount %></span></p> 
 		    </div>
@@ -30,8 +30,8 @@
   
 		 	<div>
 				<% if current_organizer == @event.organizer %>
-				<a><%= link_to "Edit event", edit_event_path(@event),class: "button radius" %></a>
-				<a><%= button_to "Delete Event", @event, class: "button radius",:method=>:delete, data: {confirm: 'Are you sure?'} %></a>
+				<a class="inline_button"><%= link_to "Edit event", edit_event_path(@event),class: "button radius" %></a>
+				<span><a class="inline_button"><%= button_to "Delete Event", @event, class: "button radius",:method=>:delete, data: {confirm: 'Are you sure?'} %></a></span>
 
 				<% end %>
 			</div>
@@ -49,7 +49,7 @@
 	         <%if @token %>
 				<%= render "shared/edit_participant_response" %>
 			<% end %>
-
+            <% if current_organizer == @event.organizer %>
 			<div id="response">
 			<h6>Your Invitees</h6>
 			<div class = "section-container accordion" data-section="accordion">
@@ -87,22 +87,7 @@
 					  </p>	
 					 </div>
 				</secion>		
-				<section class="section">
-					<p class="title">
-						<a href="#panel1">Maybe
-						(<%= @participants.where(response: "Maybe").count %>)
-						</a>
-					</p>
-					<div class="content" data-slug="panel1">
-					  <p>
-					  	<% @participants.each do |f| %>
-				           <% if f.response == "Maybe" %>
-					       <li class="li_email"><%= f.email %></li>
-					    <% end %>
-				        <% end %>
-					  </p>	
-					 </div>
-				</secion>
+				
 				<section class="section">
 					<p class="title">
 						<a href="#panel1">Waiting to response
@@ -117,9 +102,9 @@
 				      <% end %>
 					</div>
 				</secion>
-
+ 
 			</div>		
-
+            <%end%>
 
         </div>
 
