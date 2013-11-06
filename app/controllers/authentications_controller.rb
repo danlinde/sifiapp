@@ -13,7 +13,7 @@ class AuthenticationsController < ApplicationController
 	def stripe_connect
 		auth_login do |omni|
 			token = omni['credentials'].token
-			current_organizer.authentications.create!(:provider => omni['provider'], :uid => omni['uid'], :token => token) #, :stripe_publishable_key => omni["info"]["stripe_publishable_key"]
+			current_organizer.authentications.create!(:provider => omni['provider'], :uid => omni['uid'], :token => token, stripe_publishable_key => omni["info"]["stripe_publishable_key"])
 		end
 	end
 
@@ -27,7 +27,7 @@ class AuthenticationsController < ApplicationController
 			sign_in_and_redirect Organizer.find(authentication.organizer_id)
 		elsif current_organizer
 			# current_organizer.authentications.create!(yield)
-			yield
+			yield(omni)
 													# this is an example if we were to pull from 'raw info' instead
 													# :stripe_publishable_key => omni["extra"]["raw_info"]["stripe_publishable_key"])
 			flash[:notice] = 'Authentication successful.'
@@ -39,7 +39,7 @@ class AuthenticationsController < ApplicationController
 			if organizer.save
 				sign_in_and_redirect Organizer.find(organizer.id)
 			else
-				raise "sdf"
+				# raise "sdf"
 				session[:omniauth] = omni.except('extra')
 				redirect_to new_organizer_registration_path
 			end
@@ -48,7 +48,7 @@ class AuthenticationsController < ApplicationController
 
 	def set_email
 		current_organizer.email = params[:organizer][:email]
-		current_organizer.save
+		current_organizer.save!
 		redirect_to '/'
 	end
 	

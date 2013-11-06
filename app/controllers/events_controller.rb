@@ -19,15 +19,16 @@ class EventsController < ApplicationController
 	def show
 		@event = Event.find params[:id]
 		@token = params[:token]
-		@participant = Participant.find_by_token(params[:token])
-
 		@participants = @event.participants
+		@participant = @participants.find_by_token(params[:token])
 
 		if @participant
 			session[:participant_token] = params[:token]
 		else
-			flash[:notice] = 'Invalid token'
-			redirect_to '/'
+			unless @event.organizer == current_organizer
+				flash[:notice] = 'Invalid token'
+				redirect_to '/'
+			end
 		end
 	end
 
