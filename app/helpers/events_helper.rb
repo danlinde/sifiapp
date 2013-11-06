@@ -9,6 +9,6 @@ module EventsHelper
 	end
 
 	def nice_price(amount)
-		sprintf "£%.2f", amount
+		sprintf "£%.2f", amount if amount
 	end
 end
