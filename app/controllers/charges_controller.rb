@@ -6,6 +6,7 @@ class ChargesController < ApplicationController
 
 	def new
 		@event = Event.find params[:event_id]
+		@participant = Participant.find_by_token session[:participant_token]
 
 		if @event.organizer.authentications.find_by_provider('stripe_connect')
 			@participant = Participant.find_by_token session[:participant_token]
