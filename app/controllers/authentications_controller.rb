@@ -17,6 +17,11 @@ class AuthenticationsController < ApplicationController
 		end
 	end
 
+	def failure
+		flash[:error] = "Failure signing in"
+		redirect_to new_event_path
+	end
+
 	def auth_login
 		#raise omni = request.env["omniauth.auth"].to_yaml
 		omni = request.env['omniauth.auth']
