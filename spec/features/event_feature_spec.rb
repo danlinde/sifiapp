@@ -56,19 +56,18 @@ describe 'event' do
 	context 'view an event' do
 
 
-		before(:each) do
-			create_dinner
+		let(:dinner) do
+			create(:event, name: 'Dinner on Friday')
 		end
 
 		it 'an organiser or participant can view an event' do
-			visit event_path(@dinner)
+			visit participant_token_path(dinner, '32characters')
 
 			expect(page).to have_css 'h3', text: "Dinner on Friday"
-			expect(current_url).to eq url_for(@dinner)
 		end
 
 		it 'an organiser or participant can view an event with participants' do
-			visit event_path(@dinner)
+			visit participant_token_path(dinner, '32characters')
 
 			expect(page).to have_css 'h3', text: "Dinner on Friday"
 			expect(page).to have_css 'li', text: "ting@ting.com"		

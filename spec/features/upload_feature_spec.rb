@@ -10,9 +10,10 @@ describe 'when I create an event' do
 	visit new_event_path
 
 	fill_in 'event[name]', with: 'Party'
-	fill_in 'Description', with: "big party"
+	fill_in 'event[description]', with: "big party"
 	fill_in 'event[participant_emails]', with: 'd@d.com, a@a.com'
 	fill_in 'event[deadline]', with: "2013-12-05 00:00:00"
+	fill_in 'event[event_date]', with: "2013-12-06 00:00:00"
 	attach_file "Image", example_image_path
 	click_button "Forget It"
 
