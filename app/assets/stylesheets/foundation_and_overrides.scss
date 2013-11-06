@@ -17,7 +17,7 @@
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+ $body-font-family: 'Nunito',"Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -85,7 +85,7 @@ $column-gutter: 10.0em;
 //
 
 // We use these to control header font styles
-$header-font-family: 'Ubuntu', sans-serif;
+$header-font-family: 'Nunito','Ubuntu', sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
 // $header-font-color: #222;
@@ -114,7 +114,7 @@ $header-font-family: 'Ubuntu', sans-serif;
 // $small-font-color: lighten($header-font-color, 30%);
 
 // We use these to style paragraphs
-// $paragraph-font-family: inherit;
+ $paragraph-font-family: 'Nunito', inherit;
 // $paragraph-font-weight: normal;
 // $paragraph-font-size: 1em;
 // $paragraph-line-height: 1.6;
@@ -125,7 +125,7 @@ $header-font-family: 'Ubuntu', sans-serif;
 
 // We use these to style <code> tags
 // $code-color: darken($alert-color, 15%);
-// $code-font-family: Consolas, 'Liberation Mono', Courier, monospace;
+ $code-font-family: 'Nunito', Consolas, 'Liberation Mono', Courier, monospace;
 // $code-font-weight: bold;
 
 // We use these to style anchors
@@ -193,7 +193,7 @@ $header-font-family: 'Ubuntu', sans-serif;
 // $label-font-weight: 500;
 // $label-font-color: lighten(#000, 30%);
 // $label-bottom-margin: emCalc(3px);
-// $input-font-family: inherit;
+ $input-font-family: 'Nunito',inherit;
 // $input-font-color: rgba(0,0,0,0.75);
 // $input-font-size: emCalc(14px);
 // $input-bg-color: #fff;
@@ -245,7 +245,7 @@ $button-lrg: emCalc(20px);
 // $button-margin-bottom: emCalc(20px);
 
 // We use these to control button text styles.
-// $button-font-family: inherit;
+ $button-font-family: 'Nunito',inherit;
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
 // $button-font-med: emCalc(16px);
@@ -1137,7 +1137,7 @@ $global-rounded: 1000px;
 
 // We use these to style <code> tags
 // $code-color: darken($alert-color, 15%);
-// $code-font-family: Consolas, 'Liberation Mono', Courier, monospace;
+ $code-font-family: 'Nunito', Consolas, 'Liberation Mono', Courier, monospace;
 // $code-font-weight: bold;
 
 // We use these to style anchors
@@ -1205,7 +1205,7 @@ $global-rounded: 1000px;
 // $label-font-weight: 500;
 // $label-font-color: lighten(#000, 30%);
 // $label-bottom-margin: emCalc(3px);
-// $input-font-family: inherit;
+ $input-font-family:'Nunito', inherit;
 // $input-font-color: rgba(0,0,0,0.75);
 // $input-font-size: emCalc(14px);
 // $input-bg-color: #fff;
@@ -1257,7 +1257,7 @@ $button-med: emCalc(5px);
 // $button-margin-bottom: emCalc(20px);
 
 // We use these to control button text styles.
-// $button-font-family: inherit;
+ $button-font-family: 'Nunito',inherit;
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
 // $button-font-med: emCalc(16px);
