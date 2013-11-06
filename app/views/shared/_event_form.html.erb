@@ -70,10 +70,12 @@
 				<%= e.text_field :event_date, class: "datetimepicker", :required => true, :placeholder => "My event will be on .." %>
 			</div>
 
-			 <div class="large-4 columns">
-				<%= e.label "How much per person? (£)"%>
-				<%= e.text_field :amount, :placeholder => "Per person in £ e.g 38.00"%>
-			</div>
+			<% if current_organizer.stripe_connected? %>
+				 <div class="large-4 columns">
+					<%= e.label "How much per person? (£)"%>
+					<%= e.text_field :amount, :placeholder => "Per person in £ e.g 38.00"%>
+				</div>
+			<% end %>
 
 		</div>
 
