@@ -160,23 +160,23 @@
 
 form:not(.button_to) {
   background-color: white;
-  -webkit-box-shadow:
-            0px 0px 0px 2px rgba(0,0,0,0.6),
-                0px 0px 0px 9px #fff,
-                0px 0px 0px 9px rgba(0,0,0,0.2),
-                6px 6px 8px 12px #555;
+    // -webkit-box-shadow:
+    //           0px 0px 0px 2px rgba(0,0,0,0.6),
+    //               0px 0px 0px 9px #fff,
+    //               0px 0px 0px 9px rgba(0,0,0,0.2),
+    //               6px 6px 8px 12px #555;
    
-     -moz-box-shadow:
-            0px 0px 0px 2px rgba(0,0,0,0.6),
-                0px 0px 0px 9px #fff,
-                0px 0px 0px 9px rgba(0,0,0,0.2),
-                6px 6px 8px 12px #555;
+     // -moz-box-shadow:
+     //        0px 0px 0px 2px rgba(0,0,0,0.6),
+     //            0px 0px 0px 9px #fff,
+     //            0px 0px 0px 9px rgba(0,0,0,0.2),
+     //            6px 6px 8px 12px #555;
    
-          box-shadow:
-            0px 0px 0px 2px rgba(0,0,0,0.6),
-                0px 0px 0px 9px #fff,
-                0px 0px 0px 9px rgba(0,0,0,0.2),
-                6px 6px 8px 12px #555;
+          // box-shadow:
+          //   0px 0px 0px 2px rgba(0,0,0,0.6),
+          //       0px 0px 0px 9px #fff,
+          //       0px 0px 0px 9px rgba(0,0,0,0.2),
+          //       6px 6px 8px 12px #555;
 }
 
 .hovering img {
@@ -189,7 +189,7 @@ form:not(.button_to) {
 
 .hovering a {
   color: #A63800;
-  font-family: cursive;
+  font-family: nunito;
 }
 
 .togglebox {
@@ -257,8 +257,7 @@ background-color: white;
 }
 
 #event_margin {
-background-color: #DA566B;  
-opacity: 0.8;
+background-color: rgba(10, 10, 12, 0.33);  
 padding-bottom: 20px;
 }
 
@@ -288,6 +287,7 @@ color: white;
   width: 100%
 }
 
+
 #organizer_password_confirmation{
   width: 100%
 }
@@ -314,3 +314,15 @@ text-align: center;
 min-width: 150px;
 }
 
+.event_logo img{
+  width: 50px;
+  height:50px;
+}
+
+#new_organizer {
+max-width: 520px;
+margin: auto;
+width: 100%;
+padding: 24px;
+margin-top: 30px;
+}
