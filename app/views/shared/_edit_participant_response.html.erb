@@ -1,9 +1,8 @@
-<div class="row">
-	<div class="large-6 columns">
+
+	
 	<h5>Will you attend?</h5>
-		<ul class="button-group round even-3">
+		<ul class="button-group round participant">
 		  <li><%= button_to "Yes", event_participant_path(@event, @participant), :method => :put, class: "button success", name: :response, value: "Yes" %></li>
 		  <li><%= button_to "No", event_participant_path(@event, @participant), :method => :put, class: "button alert", name: :response, value: "No" %></li>
 		</ul>
-	</div>
-</div>
+	

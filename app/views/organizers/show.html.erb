@@ -1,16 +1,89 @@
 <div class="pagewrap" >
-<div class="row">
-	<div class="large-4 columns eventtop">
-		<h3>Your Events</h3>
+	<div id="event_margin">
+	<div class="row">
+		<div id="event_dashboard">
+			<div class="large-4 columns">
+				<h4>Total Revenue:</h4>
+				<h4><%= nice_price @organizer.total_revenue %></h4>
+			</div>
+			<div class="large-4 columns">
+				<h4>Responses:</h4>
+				<h4></h4>
+				<span class="dash">Yes</span><div class="progress success"><span class="meter" style="width: <%= @yes %>"></span></div>
+				<span class="dash">No</span><div class="progress alert"><span class="meter" style="width: <%= @no %>"></span></div>
+				<span class="dash">No Response</span><div class="progress"><span class="meter" style="width: <%= @no_response %>"></span></div>
+			</div>
+			<div class="large-4 columns">
+				<div class="row">
+					<div class="large-6 columns">
+					<h4>Active Events:</h4>
+					<h4><%= @active_events.count %></h4>
+					</div>
+					<div class="large-6 columns">
+					<h4>Past Events:</h4>
+					<h4><%= @archive_events.count %></h4>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="large-2 columns">
 	</div>
-	<div class="large-6 columns eventtop"><%= link_to "Create event", new_event_path, class: "button large radius" %>
-	</div>
-</div>
 
 	<div class="row">
-	<% @organizer.events.each do |event| %>
+		<div class="large-4 columns eventtop">
+			<h3>Your Active Events</h3>
+		</div>
+		<div class="large-2 columns">
+		</div>
+		<div class="large-6 columns eventtop">
+		</div>
+	</div>
+
+	<div class="row">
+	<% @active_events.each do |event| %>
+		
+			<div id="event_listing" class="large-4 columns">
+				<div id="event_pad" > 
+					<div class="hovering">					
+						<h5><%= link_to "#{event.name}", event_path(event) %></h5>
+						<%= link_to event_path(event) do %>
+							<%= image_tag event.image.url(:thumb), class: 'event_image' %>
+						<% end %>
+
+					</div>
+
+		      		<div class="togglebox">
+						<div class="content">
+						<ul class="no-bullet">
+							<li id="respond">Respond by:</li>
+							<li><%= nice_date event.deadline %></li>
+							<hr>
+							<li id="respond">Revenue to date:</li>
+							<li><%= nice_price event.revenue %></li>
+							
+					        
+					<!--Content Here-->
+						</div>
+					</div>
+				</div>
+			</div>
+	<% end %>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="large-4 columns eventtop">
+			<h3>Your Past Events</h3>
+		</div>
+		<div class="large-2 columns">
+		</div>
+		<div class="large-6 columns eventtop">
+		</div>
+	</div>
+
+	<div class="row">
+		<% @archive_events.each do |event| %>
 		
 			<div id="event_listing" class="large-4 columns">
 				<div id="event_pad" > 
@@ -26,6 +99,9 @@
 						<ul class="no-bullet">
 							<li id="respond">Respond by:</li>
 							<li><%= nice_date event.deadline %></li>
+							<hr>
+							<li id="respond">Revenue:</li>
+							<li><%= nice_price event.revenue %></li>
 							
 					        
 					<!--Content Here-->

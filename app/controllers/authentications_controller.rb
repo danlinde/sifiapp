@@ -17,6 +17,11 @@ class AuthenticationsController < ApplicationController
 		end
 	end
 
+	def failure
+		flash[:error] = "Failure signing in"
+		redirect_to new_event_path
+	end
+
 	def auth_login
 		#raise omni = request.env["omniauth.auth"].to_yaml
 		omni = request.env['omniauth.auth']
@@ -24,7 +29,8 @@ class AuthenticationsController < ApplicationController
 
 		if authentication
 			flash[:notice] = "Logged in Successfully"
-			sign_in_and_redirect Organizer.find(authentication.organizer_id)
+			sign_in Organizer.find(authentication.organizer_id)
+			redirect_to new_event_path
 		elsif current_organizer
 			# current_organizer.authentications.create!(yield)
 			yield(omni)
