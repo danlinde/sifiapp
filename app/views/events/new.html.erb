@@ -1,13 +1,13 @@
 <div class="pagewrap">
-<div class="row">
-		<h2> Create your event: </h2>
-		<ul>
-	  		<%  @event.errors.full_messages.each do |msg| %>
-	    		<li><%= msg %></li>
-	  		<% end %>
-		</ul>
+	<div class="row">
+			<h2> Create your event: </h2>
+			<ul>
+		  		<%  @event.errors.full_messages.each do |msg| %>
+		    		<li><%= msg %></li>
+		  		<% end %>
+			</ul>
 
-		<%= render "shared/event_form" %>
-	
-</div>
+			<%= render "shared/event_form" %>
+		
+	</div>
 </div>
