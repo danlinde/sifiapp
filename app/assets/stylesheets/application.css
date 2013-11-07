@@ -19,8 +19,42 @@
  *= jquery-ui-timepicker-addon.css
  */
 
+#feedback { 
+  height: 110px; 
+  width: 110px; 
+  position: fixed; 
+  top: 80%; 
+  z-index: 999;
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg); 
+  -moz-transform: rotate(-90deg); 
+  -o-transform: rotate(-90deg); 
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+#feedback a { 
+  display: block; 
+  background: #f00; 
+  height: 30px; 
+  width: 85px; 
+  padding: 8px 16px;
+  color: #fff; 
+  font-family: Nunito, sans-serif; 
+  font-size: 12px; 
+  font-weight: bold; 
+  text-decoration: none; 
+  border-bottom: solid 1px #333;
+  border-left: solid 1px #333;
+  border-right: solid 1px #fff;
+}
+
+#feedback a:hover { 
+  background: #06c; 
+}
+
+
 .pagewrap {
-  background-image: url('linen.png');
+  /*background-image: url('linen.png');*/
   background-repeat:repeat; 
   /*background-color: #FFA273;*/
 }
@@ -47,15 +81,15 @@
 }
 
 .homefirst {
-  background-color: #FFA273;
+  background-color: white;
 }
 .homefirst h3 {
 color: #A63800;
 }
 
-.homesecond {
+/*.homesecond {
   background-image:url(pattern.jpg); background-repeat:repeat;
-}
+} */
 
 .homesecond img {
   margin: 30px 20px 30px 20px;
