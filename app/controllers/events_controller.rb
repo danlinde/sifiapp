@@ -15,9 +15,9 @@ class EventsController < ApplicationController
 			render 'new'
 		end
 
-		rescue AWS::S3::Errors::RequestTimeout
-     		flash[:notice] = "Upload timed out"
-     		redirect_to 'new'
+	rescue AWS::S3::Errors::RequestTimeout
+ 		flash[:notice] = "Upload timed out"
+ 		redirect_to 'new'
 	end
 
 	def show
@@ -48,6 +48,10 @@ class EventsController < ApplicationController
 		else
 			render 'edit'
 		end
+	
+	rescue AWS::S3::Errors::RequestTimeout
+ 		flash[:notice] = "Upload timed out"
+ 		redirect_to 'new'
 	end
 
 	def destroy
