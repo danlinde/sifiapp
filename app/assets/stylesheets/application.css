@@ -19,6 +19,7 @@
  *= require_self
  */
 
+
 .orbit-slides-container li {
 max-height: 70%;
 background-position: center;
@@ -69,6 +70,7 @@ background-color: rgba(71, 112, 133, 0.5);
 
 #under-orbit p {
   color: white;
+
 }
 
 #feedback { 
@@ -192,18 +194,18 @@ background-color: #FF5600;
 
 .flash {
   text-align: center;
-  padding: 15px;  
-  border-radius: 4px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  padding: 10px;  
   color: white;
 }
 
   .flash.notice {
-    background-color: #006E4A;
+    background-color: #5da423;
+    border-color: #457a1a;
   }
 
   .flash.alert {
-   background-color: #A63800; 
+   background-color: #c60f13;
+   border-color: #970b0e;
   }
 
 
@@ -249,7 +251,12 @@ causing errors*/
 footer  {
   background: #333;
   padding: 24px 0 10px;
+  bottom: 0px;
+  width: 100%;
+  margin-bottom: 0px;
 }
+
+footer .row {min-width:100%; }
 
 footer ul.home-social {
   display: block;
@@ -305,6 +312,24 @@ color: #666;
   text-decoration: none;
   font-size: 0.8em;
 }
-.inline_button{
+
+/*.inline_button{
   display: inline-block;
+}
+*/
+
+
+@media only screen and (max-width: 1100px){
+  .top-bar-section li a:not(.button) {
+    padding: 0 11px;
+  }
+  #loggedin .logintext {
+    display: none;
+  }
+  .top-bar .name h1 a {
+    padding: 0px 0px 0px 10px;
+  }
+
+  .button {padding: 6px 20px;
+}
 }

@@ -25,7 +25,7 @@ Sifiapp::Application.configure do
        :user_name => "postmaster@sifiapplication.mailgun.org",
        :password => "2tidda2-j314"
     }
-
+  config.action_mailer.asset_host = "http://localhost:3000"
   # default URL options for devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 

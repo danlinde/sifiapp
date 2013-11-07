@@ -21,7 +21,7 @@
 
   <body>
     <div id="feedback"> <!-- thanks to Alex Peattie for this -->
-      <a href="/feedback_url/">feedback</a>
+      <a href="#" data-reveal-id="feedback_form">feedback</a>
     </div>
   
           <nav class="top-bar hide-for-small" style="">
@@ -69,15 +69,19 @@
                   </section>
           </nav>
 
-    
-                
-    <div class="row">
+    <div id="feedback_form" class="reveal-modal">
+          <h2>You have some feedback for us? Great!</h2>
+                  
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+  
+
       <div id="flash-container">     
         <div id="notice"><%= notice || flash[:error] %></div>
         
         <div id="alert"><%= alert %></div>
       </div>    
-     </div>
+     
 
    <!--  </div> -->
 
@@ -87,5 +91,6 @@
 
     <%= javascript_include_tag "application" %>
     
+
   </body>
 </html>

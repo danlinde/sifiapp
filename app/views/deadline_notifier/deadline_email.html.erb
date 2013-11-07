@@ -1,11 +1,115 @@
-<p> Dear <%= @event.organizer.email %>, <p>
 
-<p>Your deadline is past. The following participants are attending your event: </p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Deadline EmailS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
 
-<div>
-	<% @event.participants.each do |participant| %>
-		<%= participant.email if participant.response == "Yes" %>
-	<% end %>
-</div>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="300" style="border: 40px solid #86BECE; border-collapse: collapse; border-radius: 30px">
 
-<p>Go to your <%= link_to "event page", event_url(@event) %> for more details</p>
+
+   <tr>
+        <td  style="padding: 30px 30px 30px 30px; background-color:#70bbd9">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" >
+              <tr>
+                  <td align="left">
+                   <a href="http://www.setforget.it">
+                          <%= image_tag("setforget2_transparent-02.png", style: "display: block;", border: "0", alt: "logo", width: "60", height: "60" ) %>
+                  </td>
+               </tr>   
+           </table>
+         </td> 
+    </tr> 
+
+   
+
+
+
+
+     <tr>
+      <td bgcolor="#70bbd9"style="padding: 40px 30px 40px 30px;">
+
+         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+          <tr>
+            <td style="padding: 20px 20px 30px 20px; color: #ffffff; font-family: Nunito, sans-serif; font-size: 40px; text-align: left">
+               <table>
+                 <tr>
+                 <td style="letter-spacing:4px; text-align: center">
+                  Deadline for your event <%= @event.name %> is past.
+                 </td>
+                 </tr> 
+                
+               </table>
+           </td>
+         </tr>
+
+        <tr>
+          <td style="padding: 20px 20px 30px 20px; color: #ffffff; font-family: Nunito, sans-serif; font-size: 17px;text-align: left">
+             <table>
+                 <tr>
+                 <td style="letter-spacing:2px">
+                  Your deadline is past. The following participants are attending your event: 
+                  </td>
+                  </tr> 
+                  <tr>
+                  <td font-size: 14px> 
+                   <% @event.participants.each do |participant| %>
+		            <%= participant.email if participant.response == "Yes" %>
+	                <% end %>
+                  <tr>
+                  <td>
+              </table>
+        </td>
+       </tr>
+
+   
+
+      <tr>
+       <td style="padding: 20px 80px 30px 80px; color: #ffffff; font-family: Arial, sans-serif; font-size: 30px;text-align: center">
+            <table cellspacing="0" cellpadding="0"> 
+              <tr> 
+               <td align="center" width="300" height="60" bgcolor="#70bbd9" >
+
+                <%= button_to "View Your Event", event_url(@event), :method => "get", :style => "-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; background-color: #86BECE; color: #ffffff; display: block; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block"%>
+               </td> 
+               </tr> 
+            </table> 
+        </td>
+        </tr>
+
+      </table>
+
+    </td>
+    </tr>
+
+
+
+
+
+     <tr>
+        <td  style="padding: 30px 30px 30px 30px; background-color:#70bbd9" >
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                    
+                     <td style="font-size: 0; line-height: 0;" width="20" align="left">&nbsp;</td>
+                     <td style="padding: 20px 0 0 0; color: #848484; font-family: Nunito, sans-serif; font-size: 10px" align="left">
+                     &reg; SetItForget.it 2013<br/>
+                     <a href="#" style="color: #70bbd9;"><font color="#848484">Privacy Policy</font></a> 
+                     </td>
+              
+                     <td align="right">
+                      <a href="http://www.twitter.com/">
+                          <%= image_tag("twitter.png", style: "display: block;", border: "0", alt: "Twitter", width: "38", height: "38" ) %>
+                     </a>
+                    </td>
+                     <td style="font-size: 0; line-height: 0;" width="20" align="right">&nbsp;</td>
+                </tr>
+            </table>
+      </td>
+     </tr>
+ 
+</table>
+</html>
