@@ -1,8 +1,22 @@
+<h5>Will you attend?</h5>
+	<ul class="button-group round participant">
+	  	<% if @event.amount %>	
+		  	<li><%= button_to "Yes", event_participant_path(@event, @participant), :method => :put, id: "stripe-button", class: "button success", name: :response, value: "Yes" %></li>
+	  	<% else %>
+	  		<li><%= button_to "Yes", event_participant_path(@event, @participant), :method => :put, class: "button success", name: :response, value: "Yes" %></li>
+	  	<% end %>
+	  	
+	  	<li><%= button_to "No", event_participant_path(@event, @participant), :method => :put, class: "button alert", name: :response, value: "No" %></li>
+	</ul>
 
-	
-	<h5>Will you attend?</h5>
-		<ul class="button-group round participant">
-		  <li><%= button_to "Yes", event_participant_path(@event, @participant), :method => :put, class: "button success", name: :response, value: "Yes" %></li>
-		  <li><%= button_to "No", event_participant_path(@event, @participant), :method => :put, class: "button alert", name: :response, value: "No" %></li>
-		</ul>
+<% if @participant.response %>
+	<h6>Current response: <%= @participant.response %><h6>
+<% end %>
+
+<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button" 
+	data-key="<%= @event.organizer.authentications.find_by_provider('stripe_connect').stripe_publishable_key %>"
+    data-description="Your amount"
+    data-amount="<%= @event.amount * 100 %>"
+    data-currency="gbp"></script>
+
 	
