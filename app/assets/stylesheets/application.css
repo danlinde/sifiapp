@@ -191,7 +191,12 @@ causing errors*/
 footer  {
   background: #333;
   padding: 24px 0 10px;
+  bottom: 0px;
+  width: 100%;
+  margin-bottom: 0px;
 }
+
+footer .row {min-width:100%; }
 
 footer ul.home-social {
   display: block;
