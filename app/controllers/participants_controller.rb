@@ -11,7 +11,7 @@ class ParticipantsController < ApplicationController
 		if participant.update(response: params[:response])
 			flash.notice = "Your response has been updated"
 			WebsocketRails[:responses].trigger 'new', participant
-			if participant.response == "Yes" && event.amount > 0
+			if participant.response == "Yes" && !event.amount.nil?
 				redirect_to new_event_charge_path(event)
 			else
 				redirect_to participant_token_path(event, participant.token)
