@@ -134,18 +134,18 @@ background-color: #FF5600;
 
 .flash {
   text-align: center;
-  padding: 15px;  
-  border-radius: 4px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  padding: 10px;  
   color: white;
 }
 
   .flash.notice {
-    background-color: #006E4A;
+    background-color: #5da423;
+    border-color: #457a1a;
   }
 
   .flash.alert {
-   background-color: #A63800; 
+   background-color: #c60f13;
+   border-color: #970b0e;
   }
 
 
