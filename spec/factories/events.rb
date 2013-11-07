@@ -26,4 +26,5 @@ FactoryGirl.define do
       event.organizer = FactoryGirl.create(:organizer_with_oauth)
     end
   end
+
 end

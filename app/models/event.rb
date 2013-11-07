@@ -3,7 +3,9 @@ class Event < ActiveRecord::Base
 	has_many :participants
 
 
-	has_attached_file :image, styles: {:medium => "450x450>", thumb: '281x250>'},
+	has_attached_file :image, storage: :s3,
+                bucket: "sifi-1234",
+                styles: {:medium => "450x450>", thumb: '281x250>'},
 
   :default_url => "missing.jpeg"
 
