@@ -13,8 +13,7 @@
 
 		<div class="row">
 			<div class="large-8 columns">
-				<%= button_tag "1. Are you collecting payment?", "data-reveal-id" => "stripe_connect", class: "button alert round disabled"%>
-
+					<%= button_tag "1. Are you collecting payment?", "data-reveal-id" => "stripe_connect", class: "button alert round disabled", disabled: current_organizer.stripe_connected? %>
 
 				<div id="stripe_connect" class="reveal-modal">
 				  <h2>Cool! Tell us how we can pay you.</h2>
@@ -67,7 +66,7 @@
                 </p>
                 <div class="content" data-slug="panel3">
                   	<%= e.label "How much per person? (£)"%>
-					<%= e.text_field :amount, :placeholder => "Per person in £ e.g 38.00"%>
+					<%= e.text_field :amount, :placeholder => "E.g. £38.00 per person"%>
                 </div>
               </section>
 			<% end %>
