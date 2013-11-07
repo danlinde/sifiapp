@@ -19,56 +19,58 @@
     <%= csrf_meta_tags %>
   </head>
 
-
   <body>
     <div id="feedback"> <!-- thanks to Alex Peattie for this -->
       <a href="/feedback_url/">feedback</a>
     </div>
+  
+          <nav class="top-bar hide-for-small" style="">
+                    <ul class="title-area">
+                      <!-- Title Area -->
+                      <li class="name">
+                        <h1>
+                          <a href="/"><%= image_tag("setforget_logo_main.png") %></a>
+                        </h1>
+                      </li>
+                      <li class="toggle-topbar"><a href="#"></a></li>
+                    </ul>
+                  <section class="top-bar-section">
+                      <ul class="right">
+                        <li class="has-dropdown not-click">
+                          <a href="#">Events</a>
+                          <ul class="dropdown"><li class="title back js-generated"><h5><a href="#">Back</a></h5></li>
+                            <li class="nav-options-drop"><%= link_to "Create New Event", new_event_path %></li>
+                            <li class="nav-options-drop"><%= link_to "View my Events", organizer_path(current_organizer)%></li>
+                          </ul>
+                        </li>
+                    
+                        <li class="logged-in has-dropdown">
+                          <% if current_organizer %>
+                            <a href="#">
+                              <div class="avatar">
+                                <img src="http://placehold.it/25x25">
+                                <li id="loggedin"><a href="/" > Hi!, <%= current_organizer.email %></a></li>
+                              </div>
+                            </a>
+                            <li class="signout"><%= link_to "Sign out", destroy_organizer_session_path %></li>
+                          <% else %>
+                            <li class="has-dropdown not-click">
+                              <a href="#">Sign up / in</a>
+                              <ul class="dropdown">
+                                <li class="title back js-generated"><h5><a href="#">Back</a></h5></li>
+                                <li class="nav-options-drop"><%= link_to "Sign up", new_organizer_registration_path %></li>
+                                <li class="nav-options-drop"><%= link_to "Sign in", new_organizer_session_path %></li>
+                              </ul>
+                            </li>
+                            <li><%= link_to image_tag("twitter.png"), organizer_omniauth_authorize_path(:twitter), id: "twitter" %></li>
+                          <% end %> 
+                        </li>
+                      </ul>
+                  </section>
+          </nav>
+
     
-  <!--   <div class="contain-to-grid"> -->
-    
-    <nav class="top-bar">
-      <ul class="title-area">
-          <!-- Title Area -->
-          <li class="name"><h1><a href="/"><%= image_tag("setforget-resize.png")  %></a></h1></li>
-
-          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-       </ul>
-    
-      <section class="top-bar-section">         
-         <ul class="left">
-          </ul>
-          <!-- Right Nav Section -->
-          <ul class="right">
-             
-            <% if current_organizer %>
-               <!-- authentications path removed. DW & Vinay -->
-                <li><%= link_to "Create New Event", new_event_path %></li>
                 
-                <li><%= link_to "View my Events", organizer_path(current_organizer)%></li>
-                
-                <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
-                
-                <li id="loggedin"><a href="/" >Logged in as: <%= current_organizer.email %></a></li>
-
-            <% else %>
-              <li><%= link_to "Sign up", new_organizer_registration_path %></li>
-              
-              <li><%= link_to "Sign in", new_organizer_session_path %></li>
-              
-              <li>
-                <li><%= link_to image_tag("twitter.png"), organizer_omniauth_authorize_path(:twitter), id: "twitter"  %></li>
-
-                
-
-                <li class="divider"></li>
-
-            <% end %>
-
-          </ul>
-      </section>
-    </nav>
-
     <div class="row">
       <div id="flash-container">     
         <div id="notice"><%= notice || flash[:error] %></div>

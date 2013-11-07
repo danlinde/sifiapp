@@ -8,7 +8,6 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require jquery.countdown
  *= require_tree 
  *= require foundation_and_overrides
@@ -17,7 +16,60 @@
  *= require inputosaurus
  *= require animate-custom
  *= jquery-ui-timepicker-addon.css
+ *= require_self
  */
+
+.orbit-slides-container li {
+max-height: 70%;
+background-position: center;
+background-size: cover;
+width: 100%;
+min-height: 510px;
+}
+
+.homepage .orbit-slides-container .orbit-caption{
+font-size: 190%;
+text-align: center;
+background-color: rgba(71, 112, 133, 0.5);
+}
+
+.orbit-caption:before{
+  content: 'Set '
+}
+.orbit-caption:after{
+  content: ' and forget it'
+}
+
+.orbit-slides-container li#landing_bootcamp2{
+  background-image: url("/assets/landing_bootcamp2.jpg");
+}
+.orbit-slides-container li#landing_lecture{
+  background-image: url("/assets/landing_lecture.jpg");
+}
+.orbit-slides-container li#landing_music{
+  background-image: url("/assets/landing_music.jpg");
+}
+.orbit-slides-container li#landing_truck{
+  background-image: url("/assets/landing_truck.jpg");
+}
+.orbit-slides-container li#landing_wine{
+  background-image: url("/assets/landing_wine.jpg");
+}
+.orbit-slides-container li#landing_yoga{
+  background-image: url("/assets/landing_yoga.jpg");
+}
+
+#under-orbit {
+  position: absolute;
+  right: 150px;
+  top: 200px;
+  z-index: 1;
+  color: white; 
+}
+
+#under-orbit p {
+  color: white;
+}
 
 #feedback { 
   height: 110px; 
@@ -34,7 +86,7 @@
 
 #feedback a { 
   display: block; 
-  background: #f00; 
+  background: #ff3f58; 
   height: 30px; 
   width: 85px; 
   padding: 8px 16px;
@@ -60,24 +112,30 @@
 }
 
 
+
 .top-bar-section ul li a:not(.button):hover {     /* Topbar menu items. */
-    background-color: #FFA273;
+    background-color: #e0fffc;
+    color: black;
+    font-size: 18px; 
     
 }
 
 .top-bar-section ul li a:not(.button):active {     /* Topbar menu items. */
-    background-color: #FFA273;
-    
+    background-color: #e0fffc;
+    color: black;
+    font-size: 18px;
 }
 
 .top-bar .name h1 a:hover {     /* This one is optional. Text logo on the left of the Topbar. */
-    background-color: #FFA273;
-    
+    background-color: #e0fffc;
+    color: black;
+    font-size: 18px;
 }
 
 .top-bar .name h1 a:active {     /* This one is optional. Text logo on the left of the Topbar. */
-    background-color: #FFA273;
-    
+    background-color: #e0fffc;
+    color: black;
+    font-size: 18px;
 }
 
 .homefirst {
@@ -243,7 +301,7 @@ color: #666;
   padding-top: 20px;
 }
 
-#loggedin {
+.loggedin {
   text-decoration: none;
   font-size: 0.8em;
 }

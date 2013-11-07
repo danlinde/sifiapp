@@ -1,75 +1,79 @@
 <div class="homepage">
-<div class="row homefirst">
-	<div class="large-6 columns">
-		<h3>This block needs to be white </h3>
-		<h3>We want a clean layout with image carousel below this</h3>
-		<br>
-		<br>
-		<h2> Let's do this son! </h2>
+	<div class="row homefirst">
+		<div class="large-12 columns">
+			<ul data-orbit>
+				<li id="landing_bootcamp2">
+	            	<div class="orbit-caption">Bootcamps</div>
+	            </li>
+	            <li id="landing_lecture">
+	            	<div class="orbit-caption">Lectures</div>
+	            </li>
+	            <li id="landing_music">
+	            	<div class="orbit-caption">Music lessons</div>
+	            </li>
+	            <li id="landing_truck">
+	            	<div class="orbit-caption">Food trucks</div>
+	            </li>
+	            <li id="landing_wine">
+	            	<div class="orbit-caption">Wine tasting</div>
+	            </li>
+	            <li id="landing_yoga">
+	            	<div class="orbit-caption">Yoga class</div>
+	            </li>
+	        </ul>
+
+
+
+				  <div class="orbit-timer">
+				    <span></span>
+				    <div class="orbit-progress" style="width: 100%; -webkit-transition: width 10s linear;"></div>
+				  </div>
+				</div>
+
+
+
+
+
+	    </div>
+	    <div class="large-12 columns">
+	    	<div id="under-orbit">
+	   			<h1><p>Float me</p></h1>
+			</div>
+	    </div>
 	</div>
+	<div class="row homesecond" >
 
-	<div class="large-6 columns">
-	
-	<% if current_organizer %>
+		<div class="large-1 columns">
+		</div>
 
-	<div class="home_button">
-		<p class="center_button animated slideInRight"><%= link_to "Create an event now", new_event_path, class: "button large radius" %></p>
+		<div class="large-2 columns">
+			<%= image_tag("landing_calendar.png")  %>
+		</div>
+
+		<div class="large-2 columns arrow">
+			<%= image_tag("4arrow.png")  %>
+		</div>
+
+		<div class="large-2 columns">
+			<%= image_tag("landing_envelope.png")  %>
+		</div>
+
+		<div class="large-2 columns arrow">
+			<%= image_tag("4arrow.png")  %>
+		</div>
+
+		<div class="large-2 columns">
+			<%= image_tag("landing_gbp.png")  %>
+		</div>
+
+		<div class="large-1 columns">
+		</div>
 	</div>
-
-	<div class="home_button">
-		<p class="center_button animated slideInRight"><%= link_to "View your events page", organizer_path(current_organizer), class: "button large radius" %></p>
-	</div>
-
-	<% else %>
-
-	<div class="home_button">
-		<p class="center_button animated slideInRight"><%= link_to "Create your event now", new_event_path, class: "button large radius" %></p>
-	</div>
-	<% end %>
-
-
-	</div>
-</div>
-
-<div class="row homesecond" >
-	<div id="threesteps" class="large-12 columns center">
-		<h5> The easiest way to organise an event and collect money from your friends:</h5>
-	</div>
-</div>
-
-<div class="row homesecond" >
-
-	<div class="large-1 columns">
-	</div>
-
-	<div class="large-2 columns">
-		<%= image_tag("1calendar.png")  %>
-	</div>
-
-	<div class="large-2 columns arrow">
-		<%= image_tag("4arrow.png")  %>
-	</div>
-
-	<div class="large-2 columns">
-		<%= image_tag("2email.png")  %>
-	</div>
-
-	<div class="large-2 columns arrow">
-		<%= image_tag("4arrow.png")  %>
-	</div>
-
-	<div class="large-2 columns">
-		<%= image_tag("3-payment.png")  %>
-	</div>
-
-	<div class="large-1 columns">
-	</div>
-
 </div>
 
 <div class="row homesecond" >
 	<div class="large-12 columns center">
-		<h5>Secure. Easy. Fun. <%= image_tag("solid@2x.png") %></h5>
+		<h5>Secure. Easy. Fun. </h5>
 	</div>
 </div>
 
@@ -102,3 +106,12 @@
 
 
 </div>
+
+				
+
+
+
+	           
+
+
+
