@@ -8,7 +8,6 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require jquery.countdown
  *= require_tree 
  *= require foundation_and_overrides
@@ -17,10 +16,16 @@
  *= require inputosaurus
  *= require animate-custom
  *= jquery-ui-timepicker-addon.css
+ *= require_self
  */
 
-.pagewrap {
+
+/*.pagewrap {
   background-image: url('linen.png');
+*/
+
+html {
+  background-image: url('pattern.jpg');
   background-repeat:repeat; 
   /*background-color: #FFA273;*/
 }
@@ -213,6 +218,24 @@ color: #666;
   text-decoration: none;
   font-size: 0.8em;
 }
-.inline_button{
+
+/*.inline_button{
   display: inline-block;
+}
+*/
+
+
+@media only screen and (max-width: 1100px){
+  .top-bar-section li a:not(.button) {
+    padding: 0 11px;
+  }
+  #loggedin .logintext {
+    display: none;
+  }
+  .top-bar .name h1 a {
+    padding: 0px 0px 0px 10px;
+  }
+
+  .button {padding: 6px 20px;
+}
 }

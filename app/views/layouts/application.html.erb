@@ -46,7 +46,7 @@
                 <li class="divider"></li>
                 <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
                 <li class="divider"></li>
-                <li id="loggedin"><a href="/" >Logged in as: <%= current_organizer.email %></a></li>
+                <li id="loggedin"><a href="/" ><span class='logintext'>Logged in as: </span><%= current_organizer.email %></a></li>
 
             <% else %>
               <li><%= link_to "Sign up", new_organizer_registration_path %></li>
