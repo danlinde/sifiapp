@@ -19,7 +19,7 @@
  *= jquery-ui-timepicker-addon.css
  */
 
-.pagewrap {
+html {
   background-image: url('pattern.jpg');
   background-repeat:repeat; 
   /*background-color: #FFA273;*/

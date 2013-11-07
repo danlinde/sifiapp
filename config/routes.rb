@@ -23,7 +23,7 @@ Sifiapp::Application.routes.draw do
   get '/authentications/get_email' => 'authentications#get_email'
   patch '/authentications/set_email' => 'authentications#set_email'
 
-
+  get '/about' => 'pages#about'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
