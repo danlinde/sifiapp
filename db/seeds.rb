@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-oid = Organizer.create().id
-ps = [Participant.create, P.create]
-events = Events.create( name: 'Hot Yoga', description: 'Yoga', deadline: "2013-11-11 00:00:00", event_date: "2013-11-14 00:00:00", link: "www.yogatothepeople.com", organizer_id: oid, :participants=> ps, amount: 10.00 })
+oid = Organizer.create(email: "ddlinde2@gmail.com").id
+ps = [Participant.create(email: "vinaybeta@yahoo.com", response: "Yes"), Participant.create(email: "haley.xt.wright@gmail.com", response: "Yes"), Participant.create(email: "davwood_1@yahoo.com.au", response: "No"), Participant.create(email: "kiyhong@gmail.com", response: "Yes")]
+events = Event.create( name: 'Hot Yoga', description: 'Yoga', deadline: "2013-11-11 00:00:00", event_date: "2013-11-14 00:00:00", link: "www.yogatothepeople.com", organizer_id: oid, :participants=> ps, amount: 10.00)
