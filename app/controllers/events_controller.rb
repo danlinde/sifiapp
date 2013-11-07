@@ -8,12 +8,16 @@ class EventsController < ApplicationController
 	def create
 		@event = Event.new(event_params)
 
-		if @event.save!
+		if @event.save
 			flash.notice = "You created an event"
 			redirect_to event_path(@event)
 		else
 			render 'new'
 		end
+
+	rescue AWS::S3::Errors::RequestTimeout
+ 		flash[:notice] = "Upload timed out"
+ 		redirect_to 'new'
 	end
 
 	def show
@@ -44,6 +48,10 @@ class EventsController < ApplicationController
 		else
 			render 'edit'
 		end
+	
+	rescue AWS::S3::Errors::RequestTimeout
+ 		flash[:notice] = "Upload timed out"
+ 		redirect_to 'new'
 	end
 
 	def destroy
