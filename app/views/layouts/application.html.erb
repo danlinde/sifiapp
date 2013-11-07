@@ -21,6 +21,9 @@
 
 
   <body>
+    <div id="feedback"> <!-- thanks to Alex Peattie for this -->
+      <a href="/feedback_url/">feedback</a>
+    </div>
     
   <!--   <div class="contain-to-grid"> -->
     
@@ -37,30 +40,26 @@
           </ul>
           <!-- Right Nav Section -->
           <ul class="right">
-             <li class="divider"></li>
+             
             <% if current_organizer %>
                <!-- authentications path removed. DW & Vinay -->
                 <li><%= link_to "Create New Event", new_event_path %></li>
-                <li class="divider"></li>
+                
                 <li><%= link_to "View my Events", organizer_path(current_organizer)%></li>
-                <li class="divider"></li>
+                
                 <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
-                <li class="divider"></li>
+                
                 <li id="loggedin"><a href="/" >Logged in as: <%= current_organizer.email %></a></li>
 
             <% else %>
               <li><%= link_to "Sign up", new_organizer_registration_path %></li>
-              <li class="divider"></li>
+              
               <li><%= link_to "Sign in", new_organizer_session_path %></li>
-              <li class="divider"></li>
+              
               <li>
                 <li><%= link_to image_tag("twitter.png"), organizer_omniauth_authorize_path(:twitter), id: "twitter"  %></li>
 
-                <li>
-                  <% unless current_organizer.try(:stripe_connected?) %>
-                    <%= link_to image_tag("light.png"), organizer_omniauth_authorize_path(:stripe_connect), id: "stripe_connect"  %></li>
-                  <% end %>
-                </li>
+                
 
                 <li class="divider"></li>
 
