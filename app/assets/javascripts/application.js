@@ -24,7 +24,7 @@
 
 $(document).foundation();
 
-function showflash() {
+function shownotice() {
   var name = $("#notice").text();
   var flash = $("#notice");
   if (name.length > 1) {$(flash).addClass('flash').addClass('notice').html(name).appendTo('#flash-container')};
@@ -33,8 +33,19 @@ function showflash() {
   }, 3000);
 }
 
+function showalert() {
+  var name_alert = $("#alert").text();
+  var flash_alert = $("#alert");
+  if (name_alert.length > 1) {$(flash_alert).addClass('flash').addClass('alert').html(name_alert).appendTo('#flash-container')};
+  setTimeout(function() {
+    $(flash_alert).fadeOut();
+  }, 3000);
+}
+
 $(function() {
-  showflash();
+  shownotice();
+  showalert();
 })
+
 
 
