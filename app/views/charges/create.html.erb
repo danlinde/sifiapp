@@ -1,3 +1,3 @@
 <h2>Thanks, you paid <strong><%= nice_price @event.amount %></strong>!</h2>
 
-<%= link_to "Return to event", @event %>
+<%= link_to "Return to event", participant_token_path(@event, @participant.token) %>

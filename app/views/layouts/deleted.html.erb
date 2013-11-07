@@ -1,0 +1,7 @@
+ <% unless current_organizer.try(:stripe_connected?) %>
+                    <%= link_to image_tag("light.png"), organizer_omniauth_authorize_path(:stripe_connect), id: "stripe_connect"  %></li>
+                  <% end %>
+
+
+
+ <li class="divider"></li>
