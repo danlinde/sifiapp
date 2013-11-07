@@ -13,7 +13,7 @@ class AuthenticationsController < ApplicationController
 	def stripe_connect
 		auth_login do |omni|
 			token = omni['credentials'].token
-			current_organizer.authentications.create!(:provider => omni['provider'], :uid => omni['uid'], :token => token, stripe_publishable_key => omni["info"]["stripe_publishable_key"])
+			current_organizer.authentications.create!(:provider => omni['provider'], :uid => omni['uid'], :token => token, :stripe_publishable_key => omni["info"]["stripe_publishable_key"])
 		end
 	end
 
