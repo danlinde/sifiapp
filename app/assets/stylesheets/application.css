@@ -77,7 +77,7 @@ background-color: rgba(71, 112, 133, 0.5);
   height: 110px; 
   width: 110px; 
   position: fixed; 
-  top: 80%; 
+  top: 60%; 
   z-index: 999;
   transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg); 
@@ -116,7 +116,7 @@ background-color: rgba(71, 112, 133, 0.5);
 
 
 .top-bar-section ul li a:not(.button):hover {     /* Topbar menu items. */
-    background-color: #e0fffc;
+    background-color: white;
     color: black;
     font-size: 18px; 
     
@@ -129,7 +129,7 @@ background-color: rgba(71, 112, 133, 0.5);
 }
 
 .top-bar .name h1 a:hover {     /* This one is optional. Text logo on the left of the Topbar. */
-    background-color: #e0fffc;
+    background-color: white;
     color: black;
     font-size: 18px;
 }
