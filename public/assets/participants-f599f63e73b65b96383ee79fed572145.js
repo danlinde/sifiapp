@@ -1,0 +1,1 @@
+(function(){var e,o;o=new WebSocketRails(window.location.host+"/websocket"),e=o.subscribe("responses"),e.bind("new",function(){return $("#response").load(document.URL+" #response"),notify("Set & Forget","New RSVP to your event","token")})}).call(this);
