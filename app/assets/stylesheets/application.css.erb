@@ -61,7 +61,7 @@ background-color: rgba(71, 112, 133, 0.5);
 } */
 
 .orbit-slides-container li#landing_bootcamp2{
-  background-image: url('<%= asset_path "landing_bootcamp2.jpg"%>');
+  background-image: url('<%= image_path "landing_bootcamp2.jpg"%>');
 }
 .orbit-slides-container li#landing_lecture{
   background-image: url('<%= asset_path "landing_lecture.jpg"%>');
@@ -91,6 +91,10 @@ background-color: rgba(71, 112, 133, 0.5);
   color: white;
   font-size: 125%;
   background-color: #ff3f58;
+}
+
+html {
+  /*background-image: url('pattern.jpg');*/
 }
 
 #under-orbit a:hover {
@@ -343,7 +347,9 @@ color: #666;
 }
 */
 
-
+.top-bar-section li a:not(.button) {
+  padding: 0 25px;
+}
 @media only screen and (max-width: 1100px){
   .top-bar-section li a:not(.button) {
     padding: 0 11px;
