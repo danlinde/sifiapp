@@ -19,60 +19,52 @@
     <%= csrf_meta_tags %>
   </head>
 
-
   <body>
     <div id="feedback"> <!-- thanks to Alex Peattie for this -->
       <a href="#" data-reveal-id="feedback_form">feedback</a>
     </div>
+  
+          <nav class="top-bar hide-for-small" style="">
+                    <ul class="title-area">
+                      <!-- Title Area -->
+                      <li class="name">
+                        <h1>
+                          <a href="/"><%= image_tag("setforget_logo_main.png") %></a>
+                        </h1>
+                      </li>
+                      <li class="toggle-topbar"><a href="#"></a></li>
+                    </ul>
+                  <section class="top-bar-section">
+                    <ul class="right">
+                      <li class>
+                        <% if current_organizer %>
+                          <li class>
+                            <%= link_to "Create event", new_event_path %>
+                          </li>
+                          <li class>
+                            <%= link_to "View events", organizer_path(current_organizer)%>
+                          </li>
+                          <a href="#">
+                              <li id="loggedin"><a href="events/new" > Hi!, <%= current_organizer.email %></a></li>
+                            </div>
+                          </a>
+                          <li class="signout"><%= link_to "Sign out", destroy_organizer_session_path %></li>
+                        <% else %>
+                          <li class><%= link_to "Sign up", new_organizer_registration_path %></li>
+                          <li class><%= link_to "Sign in", new_organizer_session_path %></li>
+                          <li class> <%= link_to image_tag("twitter.png"), organizer_omniauth_authorize_path(:twitter), id: "twitter" %></li>
+                        <% end %> 
+                      </li>
+                    </ul>
+                  </section>
+          </nav>
 
     <div id="feedback_form" class="reveal-modal">
           <h2>You have some feedback for us? Great!</h2>
                   
         <a class="close-reveal-modal">&#215;</a>
       </div>
-    
-  <!--   <div class="contain-to-grid"> -->
-    
-    <nav class="top-bar">
-      <ul class="title-area">
-          <!-- Title Area -->
-          <li class="name"><h1><a href="/"><%= image_tag("setforget-resize.png")  %></a></h1></li>
-
-          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-       </ul>
-    
-      <section class="top-bar-section">         
-         <ul class="left">
-          </ul>
-          <!-- Right Nav Section -->
-          <ul class="right">
-             
-            <% if current_organizer %>
-               <!-- authentications path removed. DW & Vinay -->
-                <li><%= link_to "Create New Event", new_event_path %></li>
-                
-                <li><%= link_to "View my Events", organizer_path(current_organizer)%></li>
-                
-                <li><%= link_to "Sign out", destroy_organizer_session_path %></li>
-                <li class="divider"></li>
-                <li id="loggedin"><a href="/" ><span class='logintext'>Logged in as: </span><%= current_organizer.email %></a></li>
-            <% else %>
-              <li><%= link_to "Sign up", new_organizer_registration_path %></li>
-              
-              <li><%= link_to "Sign in", new_organizer_session_path %></li>
-              
-              <li>
-                <li><%= link_to image_tag("twitter.png"), organizer_omniauth_authorize_path(:twitter), id: "twitter"  %></li>
-
-                
-
-                <li class="divider"></li>
-
-            <% end %>
-
-          </ul>
-      </section>
-    </nav>
+  
 
       <div id="flash-container">     
         <div id="notice"><%= notice || flash[:error] %></div>
