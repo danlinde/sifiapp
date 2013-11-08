@@ -30,16 +30,18 @@ min-height: 510px;
 
 .homepage .orbit-slides-container .orbit-caption{
 font-size: 190%;
-text-align: center;
+text-align: right;
+padding-right: 300px;
 background-color: rgba(71, 112, 133, 0.5);
 }
 
 .orbit-caption:before{
-  content: 'Set '
+  content: 'Invite friends, set a time and cost for '
 }
+
 .orbit-caption:after{
-  content: ' and forget it'
-}
+  content: ' and '
+} 
 
 .orbit-slides-container li#landing_bootcamp2{
   background-image: url("/assets/landing_bootcamp2.jpg");
@@ -62,15 +64,21 @@ background-color: rgba(71, 112, 133, 0.5);
 
 #under-orbit {
   position: absolute;
-  right: 150px;
-  top: 200px;
+  right: 80px;
+  top: 439px;
   z-index: 1;
   color: white; 
 }
 
-#under-orbit p {
+#under-orbit a {
   color: white;
+  font-size: 125%;
+  background-color: #ff3f58;
+}
 
+#under-orbit a:hover {
+  color: white;
+  background-color: green;
 }
 
 #feedback { 
