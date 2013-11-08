@@ -19,29 +19,46 @@
  *= require_self
  */
 
+.small-block-grid-2.large-block-grid-4 {
+  /*background-position: center;*/
+  /*max-width: 200px;*/
+  display: flex;
+  justify-content: center;
+}
+
+.contactus {
+  text-align: center;
+}
+
+
+.aboutus {
+  max-height: 80%;
+  width: 100%;
+  background-position: center;
+}
 
 .orbit-slides-container li {
 max-height: 70%;
 background-position: center;
 background-size: cover;
 width: 100%;
-min-height: 510px;
+min-height: 810px;
 }
 
 .homepage .orbit-slides-container .orbit-caption{
 font-size: 190%;
-text-align: right;
-padding-right: 300px;
+text-align: center;
+/*padding-right: 300px;*/
 background-color: rgba(71, 112, 133, 0.5);
 }
 
-.orbit-caption:before{
+/*.orbit-caption:before{
   content: 'Invite friends, set a time and cost for '
-}
+}*/
 
-.orbit-caption:after{
+/*.orbit-caption:after{
   content: ' and '
-} 
+} */
 
 .orbit-slides-container li#landing_bootcamp2{
   background-image: url('<%= asset_path "landing_bootcamp2.jpg"%>');
@@ -63,9 +80,9 @@ background-color: rgba(71, 112, 133, 0.5);
 }
 
 #under-orbit {
-  position: absolute;
+  position: fixed;
   right: 80px;
-  top: 439px;
+  top: 600px;
   z-index: 1;
   color: white; 
 }
@@ -78,7 +95,7 @@ background-color: rgba(71, 112, 133, 0.5);
 
 #under-orbit a:hover {
   color: white;
-  background-color: green;
+  background-color: #06c;
 }
 
 #feedback { 
@@ -287,7 +304,7 @@ footer ul.home-social li a {
   display: block;
   height: 50px;
   width: 50px;
-  background: url("socialimages.png") no-repeat center 0; }
+  /*background: url("socialimages.png") no-repeat center 0; } */
 
 footer ul.home-social li a:hover {
   opacity: 0.8; }
