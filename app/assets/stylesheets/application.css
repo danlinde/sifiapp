@@ -44,22 +44,22 @@ background-color: rgba(71, 112, 133, 0.5);
 } 
 
 .orbit-slides-container li#landing_bootcamp2{
-  background-image: url("/assets/landing_bootcamp2.jpg");
+  background-image: url('<%= asset_path "landing_bootcamp2.jpg"%>');
 }
 .orbit-slides-container li#landing_lecture{
-  background-image: url("/assets/landing_lecture.jpg");
+  background-image: url('<%= asset_path "landing_lecture.jpg"%>');
 }
 .orbit-slides-container li#landing_music{
-  background-image: url("/assets/landing_music.jpg");
+  background-image: url('<%= asset_path "landing_music.jpg"%>');
 }
 .orbit-slides-container li#landing_truck{
-  background-image: url("/assets/landing_truck.jpg");
+  background-image: url('<%= asset_path "landing_truck.jpg"%>');
 }
 .orbit-slides-container li#landing_wine{
-  background-image: url("/assets/landing_wine.jpg");
+  background-image: url('<%= asset_path "landing_wine.jpg"%>');
 }
 .orbit-slides-container li#landing_yoga{
-  background-image: url("/assets/landing_yoga.jpg");
+  background-image: url('<%= asset_path "landing_yoga.jpg"%>');
 }
 
 #under-orbit {
