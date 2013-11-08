@@ -31,7 +31,7 @@ class AuthenticationsController < ApplicationController
 			# Sign in
 			flash[:notice] = "Logged in Successfully"
 			sign_in Organizer.find(authentication.organizer_id)
-			redirect_to new_event_path
+			redirect_to current_organizer
 		elsif current_organizer
 			# Add to existing account
 			# current_organizer.authentications.create!(yield)
@@ -49,7 +49,6 @@ class AuthenticationsController < ApplicationController
 			if organizer.save
 				sign_in_and_redirect Organizer.find(organizer.id)
 			else
-				# raise "sdf"
 				session[:omniauth] = omni.except('extra')
 				redirect_to new_organizer_registration_path
 			end
