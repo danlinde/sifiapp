@@ -7,11 +7,9 @@
 				<h4><%= nice_price @organizer.total_revenue %></h4>
 			</div>
 			<div class="large-4 columns">
-				<h4>Responses:</h4>
-				<h4></h4>
-				<span class="dash">Yes</span><div class="progress success"><span class="meter" style="width: <%= @yes %>"></span></div>
-				<span class="dash">No</span><div class="progress alert"><span class="meter" style="width: <%= @no %>"></span></div>
-				<span class="dash">No Response</span><div class="progress"><span class="meter" style="width: <%= @no_response %>"></span></div>
+				<h4>Invites:</h4>
+				<h4><%= @total %></h4>
+				
 			</div>
 			<div class="large-4 columns">
 				<div class="row">
