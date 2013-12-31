@@ -32,4 +32,8 @@ We were asked to use any of the technologies we learned during the course and al
 
 Create event:
 
+![create screen](https://raw.github.com/danlinde/sifiapp/master/create_event_screenshot.png)
+
 Track event:
+
+![track screen](https://raw.github.com/danlinde/sifiapp/master/track_event_screenshot.png)
